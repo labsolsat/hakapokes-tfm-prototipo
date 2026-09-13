@@ -1,7 +1,7 @@
 # El dataset transaccional crudo pesa ~627 MB: no se sube a GitHub
 # (limite de GitHub: 100 MB por archivo). Colocarlo manualmente en
 # data/raw/ antes de correr los scripts o notebooks.
-data/raw/hakapokes_synthetic_transactions.json
+#data/raw/hakapokes_synthetic_transactions.json
 
 # Archivos temporales de Python / Jupyter
 __pycache__/
