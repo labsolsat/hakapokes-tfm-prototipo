@@ -25,7 +25,7 @@ Tablas a cargar:
 | `fact_importancia_variables_m1_estacional.csv` | Hecho |
 | `resumen_insumos_final.csv` | Hecho (pedidos, ya estandarizado) |
 
-**Tipos de dato:** revisa que `fecha` / `fecha_dia` se importen como *Fecha*, no texto, y que `valor`, `cantidad_valor`, `bowls_estimados`, `kg_arroz_estimado`, `kg_proteina_estimado` sean *Decimal*.
+**Tipos de dato:** `fecha` / `fecha_dia` se modifican como *Fecha*, debido a que vienen como texto, y en *decimal* `valor`, `cantidad_valor`, `bowls_estimados`, `kg_arroz_estimado`, `kg_proteina_estimado`.
 
 ## 2. Relaciones del modelo
 
