@@ -1,0 +1,18 @@
+modulo,modelo,metrica,valor
+Modulo 1 - Demanda,Ridge Regression (Baseline),MAE_MXN,1938.79
+Modulo 1 - Demanda,Ridge Regression (Baseline),RMSE_MXN,2460.88
+Modulo 1 - Demanda,Ridge Regression (Baseline),R2,0.5948
+Modulo 1 - Demanda,Random Forest Regressor,MAE_MXN,818.74
+Modulo 1 - Demanda,Random Forest Regressor,RMSE_MXN,1092.48
+Modulo 1 - Demanda,Random Forest Regressor,R2,0.9201
+Modulo 1 - Demanda,HistGradientBoosting (Seleccionado),MAE_MXN,811.37
+Modulo 1 - Demanda,HistGradientBoosting (Seleccionado),RMSE_MXN,1081.85
+Modulo 1 - Demanda,HistGradientBoosting (Seleccionado),R2,0.9217
+Modulo 2 - Combo,Random Forest (Estandar),ROC_AUC,0.683
+Modulo 2 - Combo,Random Forest (Estandar),Recall_SoloBowl,0.1695
+Modulo 2 - Combo,Random Forest (Estandar),Accuracy,0.7097
+Modulo 2 - Combo,Random Forest Balanced (Seleccionado),ROC_AUC,0.6831
+Modulo 2 - Combo,Random Forest Balanced (Seleccionado),Recall_SoloBowl,0.6366
+Modulo 2 - Combo,Random Forest Balanced (Seleccionado),Precision_SoloBowl,0.4279
+Modulo 2 - Combo,Random Forest Balanced (Seleccionado),F1_Macro,0.6077
+Modulo 2 - Combo,Random Forest Balanced (Seleccionado),Accuracy,0.6312

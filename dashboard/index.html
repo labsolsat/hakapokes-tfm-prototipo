@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>HakaPokes — Prototipo de Análisis (Entregable 4)</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+  :root{
+    --bg:#0f172a; --panel:#111827; --panel2:#1f2937; --text:#e5e7eb; --muted:#9ca3af;
+    --accent:#38bdf8; --accent2:#f97316; --good:#34d399; --bad:#f87171; --grid:#374151;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);}
+  header{padding:22px 28px;border-bottom:1px solid var(--grid);}
+  header h1{margin:0;font-size:22px;}
+  header p{margin:4px 0 0;color:var(--muted);font-size:13px;}
+  .tabs{display:flex;gap:6px;padding:0 28px;border-bottom:1px solid var(--grid);}
+  .tab{padding:12px 16px;cursor:pointer;color:var(--muted);border-bottom:2px solid transparent;font-size:14px;}
+  .tab.active{color:var(--text);border-color:var(--accent);}
+  main{padding:24px 28px;max-width:1300px;margin:0 auto;}
+  .view{display:none;}
+  .view.active{display:block;}
+  .kpi-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:22px;}
+  .kpi-card{background:var(--panel);border:1px solid var(--grid);border-radius:10px;padding:16px 20px;min-width:170px;flex:1;}
+  .kpi-card .label{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.04em;}
+  .kpi-card .value{font-size:26px;font-weight:600;margin-top:6px;}
+  .kpi-card .sub{font-size:12px;color:var(--muted);margin-top:2px;}
+  .panel{background:var(--panel);border:1px solid var(--grid);border-radius:10px;padding:18px 20px;margin-bottom:20px;}
+  .panel h3{margin:0 0 4px;font-size:15px;}
+  .panel .desc{color:var(--muted);font-size:12px;margin-bottom:12px;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  select{background:var(--panel2);color:var(--text);border:1px solid var(--grid);border-radius:6px;padding:6px 10px;font-size:13px;}
+  .axis text{fill:var(--muted);font-size:11px;}
+  .axis path,.axis line{stroke:var(--grid);}
+  .bar{fill:var(--accent);}
+  .bar2{fill:var(--accent2);}
+  .grid-line{stroke:var(--grid);stroke-dasharray:2,2;}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{padding:6px 8px;text-align:left;border-bottom:1px solid var(--grid);}
+  th{color:var(--muted);font-weight:500;font-size:12px;text-transform:uppercase;}
+  .tag{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600;}
+  .tag.good{background:rgba(52,211,153,.15);color:var(--good);}
+  .tag.warn{background:rgba(249,115,22,.15);color:var(--accent2);}
+  .note{font-size:12px;color:var(--muted);margin-top:10px;line-height:1.5;}
+  .loading{padding:60px;text-align:center;color:var(--muted);}
+  .tooltip{position:absolute;background:#000c;color:#fff;padding:6px 10px;border-radius:6px;font-size:12px;pointer-events:none;opacity:0;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>HakaPokes — Prototipo de la solución analítica</h1>
+  <p>TFM Equipo 4A · Entregable 4 · Datos: 500,000 transacciones reales + inventario/ventas estimadas</p>
+</header>
+
+<div class="tabs">
+  <div class="tab active" data-view="resumen">Resumen ejecutivo</div>
+  <div class="tab" data-view="demanda">Módulo 1 · Demanda</div>
+  <div class="tab" data-view="combo">Módulo 2 · Venta cruzada</div>
+  <div class="tab" data-view="compras">Estimación de compras</div>
+  <div class="tab" data-view="pedidos">Pedidos e insumos</div>
+</div>
+
+<main>
+  <div id="loading" class="loading">Cargando datos…</div>
+  <div id="app" style="display:none;">
+
+    <section id="view-resumen" class="view active">
+      <div class="kpi-row" id="kpi-resumen"></div>
+      <div class="panel">
+        <h3>Ingresos diarios de la cadena (365 días) — con estacionalidad anual declarada</h3>
+        <div class="desc">Suma de las 5 sucursales · patrón semanal real + supuesto estacional documentado (verano +12%, diciembre +20%, cuesta de enero −15%, Semana Santa +15%)</div>
+        <div id="chart-serie"></div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <h3>Ventas por sucursal</h3>
+          <div id="chart-sucursal"></div>
+        </div>
+        <div class="panel">
+          <h3>Tasa de conversión a combo</h3>
+          <div class="desc">Promedio móvil diario, toda la cadena</div>
+          <div id="chart-conversion"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-demanda" class="view">
+      <div class="kpi-row" id="kpi-demanda"></div>
+      <div class="grid2">
+        <div class="panel">
+          <h3>Comparación de modelos — Módulo 1</h3>
+          <div class="desc">MAE por hora-sucursal (agregado diario), con estacionalidad anual incluida</div>
+          <div id="chart-modelos-m1"></div>
+        </div>
+        <div class="panel">
+          <h3>Importancia de variables — Módulo 1</h3>
+          <div class="desc">Random Forest, incluye las 4 variables de estacionalidad anual declarada</div>
+          <div id="chart-importancia-m1"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-combo" class="view">
+      <div class="kpi-row" id="kpi-combo"></div>
+      <div class="grid2">
+        <div class="panel">
+          <h3>Importancia de variables</h3>
+          <div class="desc">Random Forest balanceado (temperatura como supuesto causal declarado)</div>
+          <div id="chart-importancia"></div>
+        </div>
+        <div class="panel">
+          <h3>Matriz de confusión</h3>
+          <div id="tabla-confusion"></div>
+          <div class="note">Sensibilidad térmica: ola de calor +24.0% conversión · frente frío −23.7%</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-compras" class="view">
+      <div class="panel">
+        <h3>Estimación de compras de insumos</h3>
+        <div class="desc">
+          Horizonte:
+          <select id="sel-horizonte">
+            <option value="7_dias">7 días</option>
+            <option value="30_dias" selected>30 días</option>
+            <option value="90_dias">90 días</option>
+          </select>
+          &nbsp;&nbsp;Escenario de temporada:
+          <select id="sel-escenario">
+            <option value="Temporada Baja (cuesta enero)">Baja (cuesta de enero)</option>
+            <option value="Temporada Normal" selected>Normal</option>
+            <option value="Temporada Alta (diciembre)">Alta (diciembre)</option>
+          </select>
+        </div>
+        <div id="chart-compras"></div>
+        <div class="kpi-row" id="kpi-compras" style="margin-top:16px;"></div>
+        <div class="note">El factor de temporada se aplica sobre el mismo supuesto estacional declarado en el Módulo 1 (no es un cálculo independiente).</div>
+      </div>
+    </section>
+
+    <section id="view-pedidos" class="view">
+      <div class="panel">
+        <h3>Top 40 insumos pedidos (histórico real, ya estandarizado)</h3>
+        <div class="desc">
+          "Confirmada" = la unidad venía explícita en el pedido original (kg, L, pz).
+          "Supuesta" = el pedido original solo traía un número sin unidad; se asignó
+          la unidad de compra estándar para ese tipo de insumo en food-service, pendiente
+          de validar con el equipo de compras.
+        </div>
+        <div id="tabla-pedidos"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="tooltip" id="tooltip"></div>
+
+<script>
+const fmt = d3.format(",.0f");
+const fmtMoney = d3.format("$,.0f");
+const fmtPct = d3.format(".1%");
+const tooltip = d3.select("#tooltip");
+
+d3.json("./data/hakapokes_dashboard_data.json").then(data => {
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("app").style.display = "block";
+  render(data);
+}).catch(err => {
+  document.getElementById("loading").innerHTML =
+    "No se pudo cargar data/hakapokes_dashboard_data.json.<br>" +
+    "Si abriste este archivo con doble clic, tu navegador bloquea fetch() en file://.<br>" +
+    "Ejecuta un servidor local, p.ej.: <code>python3 -m http.server</code> dentro de la carpeta 'dashboard'.";
+  console.error(err);
+});
+
+// ---- Tabs ----
+document.querySelectorAll(".tab").forEach(t => {
+  t.addEventListener("click", () => {
+    document.querySelectorAll(".tab").forEach(x => x.classList.remove("active"));
+    document.querySelectorAll(".view").forEach(x => x.classList.remove("active"));
+    t.classList.add("active");
+    document.getElementById("view-" + t.dataset.view).classList.add("active");
+  });
+});
+
+function kpiCard(container, label, value, sub, tagText, tagClass) {
+  const card = container.append("div").attr("class", "kpi-card");
+  card.append("div").attr("class", "label").text(label);
+  card.append("div").attr("class", "value").text(value);
+  if (sub) card.append("div").attr("class", "sub").text(sub);
+  if (tagText) card.append("span").attr("class", "tag " + tagClass).text(tagText);
+}
+
+function render(data) {
+  // ===== Resumen ejecutivo =====
+  const kpiR = d3.select("#kpi-resumen");
+  const totalIngreso = d3.sum(data.serie_diaria_cadena_estacional, d => +d.ingreso_total_mxn);
+  const totalTickets = d3.sum(data.serie_diaria_cadena, d => +d.n_tickets);
+  const tasaProm = d3.mean(data.serie_diaria_cadena, d => +d.tasa_bebida);
+  kpiCard(kpiR, "Ingreso total (365 días)", fmtMoney(totalIngreso), "5 sucursales · con estacionalidad");
+  kpiCard(kpiR, "Transacciones", fmt(totalTickets), "histórico real");
+  kpiCard(kpiR, "Tasa combo promedio", fmtPct(tasaProm), "toda la cadena");
+  kpiCard(kpiR, "Sucursales activas", data.dim_sucursal.length, "Querétaro");
+
+  lineChart("#chart-serie", data.serie_diaria_cadena_estacional, "fecha_dia", "ingreso_total_mxn", 1100, 260, true);
+
+  const porSucursal = d3.rollups(data.ventas_por_sucursal_tamano, v => d3.sum(v, d => +d.ingreso_total_mxn), d => d.sucursal)
+    .map(([sucursal, total]) => ({ sucursal, total }))
+    .sort((a, b) => d3.descending(a.total, b.total));
+  barChart("#chart-sucursal", porSucursal, "sucursal", "total", 520, 260, fmtMoney);
+
+  lineChart("#chart-conversion", data.serie_diaria_cadena, "fecha_dia", "tasa_bebida", 520, 260, false, fmtPct);
+
+  // ===== Módulo 1 =====
+  const kpiD = d3.select("#kpi-demanda");
+  const m1 = data.kpis_modulo1_estacional.filter(k => k.modelo.includes("Seleccionado"));
+  const mae1 = m1.find(k => k.metrica === "MAE_MXN").valor;
+  const r2_1 = m1.find(k => k.metrica === "R2").valor;
+  kpiCard(kpiD, "MAE (seleccionado)", fmtMoney(mae1), "HistGradientBoosting, con estacionalidad", "Menor es mejor", "good");
+  kpiCard(kpiD, "R²", (r2_1*100).toFixed(1) + "%", "Varianza explicada", "Alto", "good");
+
+  const modelosM1 = ["Ridge Regression (Baseline)", "Random Forest Regressor", "HistGradientBoosting (Seleccionado)"];
+  const maeByModel = modelosM1.map(m => ({
+    modelo: m.replace(" (Seleccionado)","").replace(" (Baseline)",""),
+    valor: data.kpis_modulo1_estacional.find(k => k.modelo === m && k.metrica === "MAE_MXN").valor
+  }));
+  barChart("#chart-modelos-m1", maeByModel, "modelo", "valor", 520, 280, fmtMoney);
+
+  const importanciaM1 = Object.entries(data.importancia_variables_modulo1)
+    .map(([variable, valor]) => ({ variable, valor }))
+    .sort((a,b) => d3.descending(a.valor, b.valor));
+  barChartH("#chart-importancia-m1", importanciaM1, "variable", "valor", 520, 280);
+
+  // ===== Módulo 2 =====
+  const kpiC = d3.select("#kpi-combo");
+  const m2 = data.kpis_modelos.filter(k => k.modulo === "Modulo 2 - Combo" && k.modelo.includes("Seleccionado"));
+  const roc = m2.find(k => k.metrica === "ROC_AUC").valor;
+  const rec = m2.find(k => k.metrica === "Recall_SoloBowl").valor;
+  const f1 = m2.find(k => k.metrica === "F1_Macro").valor;
+  kpiCard(kpiC, "ROC-AUC", roc.toFixed(3), "Random Forest balanced");
+  kpiCard(kpiC, "Recall (Solo Bowl)", fmtPct(rec), "clase minoritaria", "Corregido", "good");
+  kpiCard(kpiC, "F1-Macro", f1.toFixed(3), "equilibrio ambas clases");
+
+  const importancia = Object.entries(data.importancia_variables_modulo2)
+    .map(([variable, valor]) => ({ variable, valor }))
+    .sort((a,b) => d3.descending(a.valor, b.valor));
+  barChartH("#chart-importancia", importancia, "variable", "valor", 520, 280);
+
+  const cm = data.matriz_confusion_modulo2;
+  const tabla = d3.select("#tabla-confusion").append("table");
+  const header = tabla.append("tr");
+  ["", "Predicho: Combo", "Predicho: Solo Bowl"].forEach(h => header.append("th").text(h));
+  const r1 = tabla.append("tr");
+  r1.append("th").text("Real: Combo");
+  r1.append("td").text(fmt(cm.VN_combo_pred_combo));
+  r1.append("td").text(fmt(cm.FP_combo_pred_solo));
+  const r2 = tabla.append("tr");
+  r2.append("th").text("Real: Solo Bowl");
+  r2.append("td").text(fmt(cm.FN_solo_pred_combo));
+  r2.append("td").text(fmt(cm.VP_solo_pred_solo));
+
+  // ===== Compras estimadas =====
+  function renderCompras(horizonte, escenario) {
+    d3.select("#chart-compras").html("");
+    d3.select("#kpi-compras").html("");
+    const filtrado = data.compras_estimadas.filter(d => d.horizonte === horizonte && d.escenario_temporada === escenario);
+    const porSucursal = d3.rollups(filtrado, v => ({
+        bowls: d3.sum(v, d => +d.bowls_estimados),
+        arroz: d3.sum(v, d => +d.kg_arroz_estimado),
+        proteina: d3.sum(v, d => +d.kg_proteina_estimado)
+      }), d => d.sucursal)
+      .map(([sucursal, vals]) => ({ sucursal, ...vals }));
+
+    groupedBarChart("#chart-compras", porSucursal, "sucursal", ["arroz","proteina"], 1100, 300,
+                     {arroz:"Kg arroz", proteina:"Kg proteína"});
+
+    const totBowls = d3.sum(porSucursal, d => d.bowls);
+    const totArroz = d3.sum(porSucursal, d => d.arroz);
+    const totProt = d3.sum(porSucursal, d => d.proteina);
+    const factor = filtrado[0] ? filtrado[0].factor_temporada : 1;
+    const kpi = d3.select("#kpi-compras");
+    kpiCard(kpi, "Bowls estimados", fmt(totBowls), horizonte.replace("_"," ") + " · factor " + factor + "x");
+    kpiCard(kpi, "Kg arroz a comprar", fmt(totArroz), "toda la cadena");
+    kpiCard(kpi, "Kg proteína a comprar", fmt(totProt), "salmón + atún + camarón");
+  }
+  renderCompras("30_dias", "Temporada Normal");
+  document.getElementById("sel-horizonte").addEventListener("change", e =>
+    renderCompras(e.target.value, document.getElementById("sel-escenario").value));
+  document.getElementById("sel-escenario").addEventListener("change", e =>
+    renderCompras(document.getElementById("sel-horizonte").value, e.target.value));
+
+  // ===== Pedidos =====
+  const tabP = d3.select("#tabla-pedidos").append("table");
+  const hp = tabP.append("tr");
+  ["Categoría","Producto","Cantidad","Unidad","Confianza"].forEach(h => hp.append("th").text(h));
+  data.pedidos_insumos_top.forEach(p => {
+    const row = tabP.append("tr");
+    row.append("td").text(p.categoria);
+    row.append("td").text(p.producto);
+    row.append("td").text(d3.format(",.1f")(p.cantidad_valor));
+    row.append("td").text(p.unidad);
+    const conf = row.append("td");
+    if (p.unidad_confirmada) {
+      conf.append("span").attr("class","tag good").text("Confirmada");
+    } else {
+      conf.append("span").attr("class","tag warn").text("Supuesta");
+    }
+  });
+}
+
+// ---------------- Utilidades de gráficos D3 reutilizables ----------------
+
+function baseSvg(sel, w, h, margin) {
+  d3.select(sel).select("svg").remove();
+  return d3.select(sel).append("svg").attr("width", w).attr("height", h)
+    .append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+}
+
+function lineChart(sel, data, xKey, yKey, w, h, isMoney, fmtFn) {
+  const margin = {top:10,right:20,bottom:30,left:isMoney?70:50};
+  const iw = w - margin.left - margin.right, ih = h - margin.top - margin.bottom;
+  const g = baseSvg(sel, w, h, margin);
+  const parsed = data.map(d => ({ x: new Date(d[xKey]), y: +d[yKey] }));
+  const x = d3.scaleTime().domain(d3.extent(parsed, d => d.x)).range([0, iw]);
+  const y = d3.scaleLinear().domain([0, d3.max(parsed, d => d.y) * 1.1]).range([ih, 0]);
+  g.append("g").attr("class","axis").attr("transform",`translate(0,${ih})`).call(d3.axisBottom(x).ticks(6));
+  g.append("g").attr("class","axis").call(d3.axisLeft(y).ticks(5).tickFormat(fmtFn || d3.format("~s")));
+  const line = d3.line().x(d => x(d.x)).y(d => y(d.y)).curve(d3.curveMonotoneX);
+  g.append("path").datum(parsed).attr("fill","none").attr("stroke","#38bdf8").attr("stroke-width",1.6).attr("d", line);
+}
+
+function barChart(sel, data, xKey, yKey, w, h, fmtFn) {
+  const margin = {top:10,right:20,bottom:40,left:80};
+  const iw = w - margin.left - margin.right, ih = h - margin.top - margin.bottom;
+  const g = baseSvg(sel, w, h, margin);
+  const x = d3.scaleBand().domain(data.map(d => d[xKey])).range([0, iw]).padding(0.3);
+  const y = d3.scaleLinear().domain([0, d3.max(data, d => +d[yKey]) * 1.15]).range([ih, 0]);
+  g.append("g").attr("class","axis").attr("transform",`translate(0,${ih})`).call(d3.axisBottom(x));
+  g.append("g").attr("class","axis").call(d3.axisLeft(y).ticks(5).tickFormat(fmtFn || d3.format("~s")));
+  g.selectAll(".bar").data(data).join("rect").attr("class","bar")
+    .attr("x", d => x(d[xKey])).attr("width", x.bandwidth())
+    .attr("y", d => y(+d[yKey])).attr("height", d => ih - y(+d[yKey])).attr("rx",3)
+    .on("mousemove", (ev,d) => tooltip.style("opacity",1).style("left",(ev.pageX+10)+"px").style("top",(ev.pageY-20)+"px")
+        .html(`${d[xKey]}<br><b>${(fmtFn||d3.format(","))(d[yKey])}</b>`))
+    .on("mouseleave", () => tooltip.style("opacity",0));
+}
+
+function barChartH(sel, data, labelKey, valKey, w, h) {
+  const margin = {top:10,right:30,bottom:20,left:150};
+  const iw = w - margin.left - margin.right, ih = h - margin.top - margin.bottom;
+  const g = baseSvg(sel, w, h, margin);
+  const y = d3.scaleBand().domain(data.map(d => d[labelKey])).range([0, ih]).padding(0.25);
+  const x = d3.scaleLinear().domain([0, d3.max(data, d => +d[valKey]) * 1.1]).range([0, iw]);
+  g.append("g").attr("class","axis").call(d3.axisLeft(y));
+  g.append("g").attr("class","axis").attr("transform",`translate(0,${ih})`).call(d3.axisBottom(x).ticks(5, "%"));
+  g.selectAll(".bar").data(data).join("rect").attr("class","bar")
+    .attr("y", d => y(d[labelKey])).attr("height", y.bandwidth())
+    .attr("x", 0).attr("width", d => x(+d[valKey])).attr("rx",3);
+}
+
+function groupedBarChart(sel, data, groupKey, subKeys, w, h, labels) {
+  const margin = {top:10,right:20,bottom:40,left:70};
+  const iw = w - margin.left - margin.right, ih = h - margin.top - margin.bottom;
+  const g = baseSvg(sel, w, h, margin);
+  const x0 = d3.scaleBand().domain(data.map(d => d[groupKey])).range([0, iw]).padding(0.25);
+  const x1 = d3.scaleBand().domain(subKeys).range([0, x0.bandwidth()]).padding(0.1);
+  const y = d3.scaleLinear().domain([0, d3.max(data, d => d3.max(subKeys, k => +d[k])) * 1.15]).range([ih, 0]);
+  const color = d3.scaleOrdinal().domain(subKeys).range(["#38bdf8","#f97316"]);
+  g.append("g").attr("class","axis").attr("transform",`translate(0,${ih})`).call(d3.axisBottom(x0));
+  g.append("g").attr("class","axis").call(d3.axisLeft(y).ticks(5));
+  const groups = g.selectAll(".grp").data(data).join("g").attr("transform", d => `translate(${x0(d[groupKey])},0)`);
+  groups.selectAll("rect").data(d => subKeys.map(k => ({key:k, value:+d[k], group:d[groupKey]})))
+    .join("rect").attr("x", d => x1(d.key)).attr("width", x1.bandwidth())
+    .attr("y", d => y(d.value)).attr("height", d => ih - y(d.value)).attr("fill", d => color(d.key)).attr("rx",2)
+    .on("mousemove", (ev,d) => tooltip.style("opacity",1).style("left",(ev.pageX+10)+"px").style("top",(ev.pageY-20)+"px")
+        .html(`${d.group} — ${labels[d.key]}<br><b>${d3.format(",.0f")(d.value)}</b>`))
+    .on("mouseleave", () => tooltip.style("opacity",0));
+  // leyenda simple
+  const leg = g.append("g").attr("transform", `translate(${iw-160},-6)`);
+  subKeys.forEach((k,i) => {
+    leg.append("rect").attr("x",0).attr("y",i*16).attr("width",10).attr("height",10).attr("fill",color(k));
+    leg.append("text").attr("x",14).attr("y",i*16+9).attr("fill","#9ca3af").attr("font-size",11).text(labels[k]);
+  });
+}
+</script>
+</body>
+</html>

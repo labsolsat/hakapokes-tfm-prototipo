@@ -1,0 +1,136 @@
+sucursal,horizonte,dias,escenario_temporada,factor_temporada,tamano,bowls_estimados,kg_arroz_estimado,kg_proteina_estimado
+Campanario,7_dias,7,Temporada Baja (cuesta enero),0.85,Chico,609.3,91.39,18.28
+Campanario,7_dias,7,Temporada Baja (cuesta enero),0.85,Mediano,1017.4,203.48,61.05
+Campanario,7_dias,7,Temporada Baja (cuesta enero),0.85,Grande,407.8,122.33,36.7
+Campanario,7_dias,7,Temporada Normal,1.0,Chico,716.8,107.52,21.5
+Campanario,7_dias,7,Temporada Normal,1.0,Mediano,1197.0,239.39,71.82
+Campanario,7_dias,7,Temporada Normal,1.0,Grande,479.7,143.91,43.17
+Campanario,7_dias,7,Temporada Alta (diciembre),1.2,Chico,860.2,129.02,25.8
+Campanario,7_dias,7,Temporada Alta (diciembre),1.2,Mediano,1436.4,287.27,86.18
+Campanario,7_dias,7,Temporada Alta (diciembre),1.2,Grande,575.7,172.7,51.81
+Campanario,30_dias,30,Temporada Baja (cuesta enero),0.85,Chico,2611.2,391.68,78.34
+Campanario,30_dias,30,Temporada Baja (cuesta enero),0.85,Mediano,4360.4,872.08,261.62
+Campanario,30_dias,30,Temporada Baja (cuesta enero),0.85,Grande,1747.5,524.26,157.28
+Campanario,30_dias,30,Temporada Normal,1.0,Chico,3072.0,460.8,92.16
+Campanario,30_dias,30,Temporada Normal,1.0,Mediano,5129.9,1025.97,307.79
+Campanario,30_dias,30,Temporada Normal,1.0,Grande,2055.9,616.77,185.03
+Campanario,30_dias,30,Temporada Alta (diciembre),1.2,Chico,3686.4,552.96,110.59
+Campanario,30_dias,30,Temporada Alta (diciembre),1.2,Mediano,6155.8,1231.17,369.35
+Campanario,30_dias,30,Temporada Alta (diciembre),1.2,Grande,2467.1,740.13,222.04
+Campanario,90_dias,90,Temporada Baja (cuesta enero),0.85,Chico,7833.7,1175.05,235.01
+Campanario,90_dias,90,Temporada Baja (cuesta enero),0.85,Mediano,13081.1,2616.23,784.87
+Campanario,90_dias,90,Temporada Baja (cuesta enero),0.85,Grande,5242.6,1572.77,471.83
+Campanario,90_dias,90,Temporada Normal,1.0,Chico,9216.1,1382.41,276.48
+Campanario,90_dias,90,Temporada Normal,1.0,Mediano,15389.6,3077.91,923.37
+Campanario,90_dias,90,Temporada Normal,1.0,Grande,6167.7,1850.32,555.09
+Campanario,90_dias,90,Temporada Alta (diciembre),1.2,Chico,11059.3,1658.89,331.78
+Campanario,90_dias,90,Temporada Alta (diciembre),1.2,Mediano,18467.5,3693.5,1108.05
+Campanario,90_dias,90,Temporada Alta (diciembre),1.2,Grande,7401.3,2220.38,666.11
+Centro Sur,7_dias,7,Temporada Baja (cuesta enero),0.85,Chico,362.0,54.31,10.86
+Centro Sur,7_dias,7,Temporada Baja (cuesta enero),0.85,Mediano,604.6,120.91,36.27
+Centro Sur,7_dias,7,Temporada Baja (cuesta enero),0.85,Grande,242.3,72.69,21.81
+Centro Sur,7_dias,7,Temporada Normal,1.0,Chico,425.9,63.89,12.78
+Centro Sur,7_dias,7,Temporada Normal,1.0,Mediano,711.2,142.25,42.67
+Centro Sur,7_dias,7,Temporada Normal,1.0,Grande,285.0,85.51,25.65
+Centro Sur,7_dias,7,Temporada Alta (diciembre),1.2,Chico,511.1,76.67,15.33
+Centro Sur,7_dias,7,Temporada Alta (diciembre),1.2,Mediano,853.5,170.7,51.21
+Centro Sur,7_dias,7,Temporada Alta (diciembre),1.2,Grande,342.1,102.62,30.79
+Centro Sur,30_dias,30,Temporada Baja (cuesta enero),0.85,Chico,1551.6,232.74,46.55
+Centro Sur,30_dias,30,Temporada Baja (cuesta enero),0.85,Mediano,2591.0,518.19,155.46
+Centro Sur,30_dias,30,Temporada Baja (cuesta enero),0.85,Grande,1038.4,311.52,93.45
+Centro Sur,30_dias,30,Temporada Normal,1.0,Chico,1825.4,273.81,54.76
+Centro Sur,30_dias,30,Temporada Normal,1.0,Mediano,3048.2,609.64,182.89
+Centro Sur,30_dias,30,Temporada Normal,1.0,Grande,1221.6,366.49,109.95
+Centro Sur,30_dias,30,Temporada Alta (diciembre),1.2,Chico,2190.5,328.57,65.71
+Centro Sur,30_dias,30,Temporada Alta (diciembre),1.2,Mediano,3657.8,731.57,219.47
+Centro Sur,30_dias,30,Temporada Alta (diciembre),1.2,Grande,1466.0,439.79,131.94
+Centro Sur,90_dias,90,Temporada Baja (cuesta enero),0.85,Chico,4654.8,698.22,139.64
+Centro Sur,90_dias,90,Temporada Baja (cuesta enero),0.85,Mediano,7772.9,1554.58,466.37
+Centro Sur,90_dias,90,Temporada Baja (cuesta enero),0.85,Grande,3115.2,934.55,280.36
+Centro Sur,90_dias,90,Temporada Normal,1.0,Chico,5476.2,821.44,164.29
+Centro Sur,90_dias,90,Temporada Normal,1.0,Mediano,9144.6,1828.92,548.68
+Centro Sur,90_dias,90,Temporada Normal,1.0,Grande,3664.9,1099.47,329.84
+Centro Sur,90_dias,90,Temporada Alta (diciembre),1.2,Chico,6571.5,985.72,197.14
+Centro Sur,90_dias,90,Temporada Alta (diciembre),1.2,Mediano,10973.5,2194.7,658.41
+Centro Sur,90_dias,90,Temporada Alta (diciembre),1.2,Grande,4397.9,1319.36,395.81
+El Refugio,7_dias,7,Temporada Baja (cuesta enero),0.85,Chico,488.5,73.27,14.65
+El Refugio,7_dias,7,Temporada Baja (cuesta enero),0.85,Mediano,815.7,163.13,48.94
+El Refugio,7_dias,7,Temporada Baja (cuesta enero),0.85,Grande,326.9,98.07,29.42
+El Refugio,7_dias,7,Temporada Normal,1.0,Chico,574.7,86.2,17.24
+El Refugio,7_dias,7,Temporada Normal,1.0,Mediano,959.6,191.92,57.58
+El Refugio,7_dias,7,Temporada Normal,1.0,Grande,384.6,115.37,34.61
+El Refugio,7_dias,7,Temporada Alta (diciembre),1.2,Chico,689.6,103.44,20.69
+El Refugio,7_dias,7,Temporada Alta (diciembre),1.2,Mediano,1151.5,230.3,69.09
+El Refugio,7_dias,7,Temporada Alta (diciembre),1.2,Grande,461.5,138.45,41.53
+El Refugio,30_dias,30,Temporada Baja (cuesta enero),0.85,Chico,2093.4,314.01,62.8
+El Refugio,30_dias,30,Temporada Baja (cuesta enero),0.85,Mediano,3495.7,699.14,209.74
+El Refugio,30_dias,30,Temporada Baja (cuesta enero),0.85,Grande,1401.0,420.29,126.09
+El Refugio,30_dias,30,Temporada Normal,1.0,Chico,2462.8,369.42,73.88
+El Refugio,30_dias,30,Temporada Normal,1.0,Mediano,4112.6,822.52,246.75
+El Refugio,30_dias,30,Temporada Normal,1.0,Grande,1648.2,494.46,148.34
+El Refugio,30_dias,30,Temporada Alta (diciembre),1.2,Chico,2955.4,443.31,88.66
+El Refugio,30_dias,30,Temporada Alta (diciembre),1.2,Mediano,4935.1,987.02,296.11
+El Refugio,30_dias,30,Temporada Alta (diciembre),1.2,Grande,1977.8,593.35,178.01
+El Refugio,90_dias,90,Temporada Baja (cuesta enero),0.85,Chico,6280.2,942.03,188.41
+El Refugio,90_dias,90,Temporada Baja (cuesta enero),0.85,Mediano,10487.1,2097.41,629.22
+El Refugio,90_dias,90,Temporada Baja (cuesta enero),0.85,Grande,4202.9,1260.88,378.26
+El Refugio,90_dias,90,Temporada Normal,1.0,Chico,7388.5,1108.27,221.65
+El Refugio,90_dias,90,Temporada Normal,1.0,Mediano,12337.7,2467.55,740.26
+El Refugio,90_dias,90,Temporada Normal,1.0,Grande,4944.6,1483.39,445.02
+El Refugio,90_dias,90,Temporada Alta (diciembre),1.2,Chico,8866.2,1329.92,265.98
+El Refugio,90_dias,90,Temporada Alta (diciembre),1.2,Mediano,14805.3,2961.05,888.32
+El Refugio,90_dias,90,Temporada Alta (diciembre),1.2,Grande,5933.5,1780.06,534.02
+Jurica,7_dias,7,Temporada Baja (cuesta enero),0.85,Chico,363.3,54.49,10.9
+Jurica,7_dias,7,Temporada Baja (cuesta enero),0.85,Mediano,606.6,121.33,36.4
+Jurica,7_dias,7,Temporada Baja (cuesta enero),0.85,Grande,243.1,72.94,21.88
+Jurica,7_dias,7,Temporada Normal,1.0,Chico,427.4,64.11,12.82
+Jurica,7_dias,7,Temporada Normal,1.0,Mediano,713.7,142.74,42.82
+Jurica,7_dias,7,Temporada Normal,1.0,Grande,286.0,85.81,25.74
+Jurica,7_dias,7,Temporada Alta (diciembre),1.2,Chico,512.9,76.93,15.39
+Jurica,7_dias,7,Temporada Alta (diciembre),1.2,Mediano,856.4,171.29,51.39
+Jurica,7_dias,7,Temporada Alta (diciembre),1.2,Grande,343.2,102.97,30.89
+Jurica,30_dias,30,Temporada Baja (cuesta enero),0.85,Chico,1557.0,233.54,46.71
+Jurica,30_dias,30,Temporada Baja (cuesta enero),0.85,Mediano,2599.9,519.98,156.0
+Jurica,30_dias,30,Temporada Baja (cuesta enero),0.85,Grande,1042.0,312.59,93.78
+Jurica,30_dias,30,Temporada Normal,1.0,Chico,1831.7,274.76,54.95
+Jurica,30_dias,30,Temporada Normal,1.0,Mediano,3058.7,611.75,183.52
+Jurica,30_dias,30,Temporada Normal,1.0,Grande,1225.9,367.76,110.33
+Jurica,30_dias,30,Temporada Alta (diciembre),1.2,Chico,2198.1,329.71,65.94
+Jurica,30_dias,30,Temporada Alta (diciembre),1.2,Mediano,3670.5,734.1,220.23
+Jurica,30_dias,30,Temporada Alta (diciembre),1.2,Grande,1471.0,441.31,132.39
+Jurica,90_dias,90,Temporada Baja (cuesta enero),0.85,Chico,4670.9,700.63,140.13
+Jurica,90_dias,90,Temporada Baja (cuesta enero),0.85,Mediano,7799.8,1559.95,467.99
+Jurica,90_dias,90,Temporada Baja (cuesta enero),0.85,Grande,3125.9,937.78,281.33
+Jurica,90_dias,90,Temporada Normal,1.0,Chico,5495.2,824.28,164.86
+Jurica,90_dias,90,Temporada Normal,1.0,Mediano,9176.2,1835.24,550.57
+Jurica,90_dias,90,Temporada Normal,1.0,Grande,3677.6,1103.27,330.98
+Jurica,90_dias,90,Temporada Alta (diciembre),1.2,Chico,6594.2,989.13,197.83
+Jurica,90_dias,90,Temporada Alta (diciembre),1.2,Mediano,11011.4,2202.29,660.69
+Jurica,90_dias,90,Temporada Alta (diciembre),1.2,Grande,4413.1,1323.92,397.18
+Juriquilla,7_dias,7,Temporada Baja (cuesta enero),0.85,Chico,611.2,91.69,18.34
+Juriquilla,7_dias,7,Temporada Baja (cuesta enero),0.85,Mediano,1020.7,204.14,61.24
+Juriquilla,7_dias,7,Temporada Baja (cuesta enero),0.85,Grande,409.1,122.72,36.82
+Juriquilla,7_dias,7,Temporada Normal,1.0,Chico,719.1,107.87,21.57
+Juriquilla,7_dias,7,Temporada Normal,1.0,Mediano,1200.8,240.16,72.05
+Juriquilla,7_dias,7,Temporada Normal,1.0,Grande,481.2,144.37,43.31
+Juriquilla,7_dias,7,Temporada Alta (diciembre),1.2,Chico,862.9,129.44,25.89
+Juriquilla,7_dias,7,Temporada Alta (diciembre),1.2,Mediano,1441.0,288.19,86.46
+Juriquilla,7_dias,7,Temporada Alta (diciembre),1.2,Grande,577.5,173.25,51.97
+Juriquilla,30_dias,30,Temporada Baja (cuesta enero),0.85,Chico,2619.6,392.94,78.59
+Juriquilla,30_dias,30,Temporada Baja (cuesta enero),0.85,Mediano,4374.4,874.87,262.46
+Juriquilla,30_dias,30,Temporada Baja (cuesta enero),0.85,Grande,1753.1,525.94,157.78
+Juriquilla,30_dias,30,Temporada Normal,1.0,Chico,3081.9,462.28,92.46
+Juriquilla,30_dias,30,Temporada Normal,1.0,Mediano,5146.3,1029.26,308.78
+Juriquilla,30_dias,30,Temporada Normal,1.0,Grande,2062.5,618.75,185.62
+Juriquilla,30_dias,30,Temporada Alta (diciembre),1.2,Chico,3698.2,554.74,110.95
+Juriquilla,30_dias,30,Temporada Alta (diciembre),1.2,Mediano,6175.6,1235.11,370.53
+Juriquilla,30_dias,30,Temporada Alta (diciembre),1.2,Grande,2475.0,742.5,222.75
+Juriquilla,90_dias,90,Temporada Baja (cuesta enero),0.85,Chico,7858.8,1178.81,235.76
+Juriquilla,90_dias,90,Temporada Baja (cuesta enero),0.85,Mediano,13123.1,2624.61,787.38
+Juriquilla,90_dias,90,Temporada Baja (cuesta enero),0.85,Grande,5259.4,1577.81,473.34
+Juriquilla,90_dias,90,Temporada Normal,1.0,Chico,9245.6,1386.84,277.37
+Juriquilla,90_dias,90,Temporada Normal,1.0,Mediano,15438.9,3087.78,926.33
+Juriquilla,90_dias,90,Temporada Normal,1.0,Grande,6187.5,1856.24,556.87
+Juriquilla,90_dias,90,Temporada Alta (diciembre),1.2,Chico,11094.7,1664.21,332.84
+Juriquilla,90_dias,90,Temporada Alta (diciembre),1.2,Mediano,18526.7,3705.33,1111.6
+Juriquilla,90_dias,90,Temporada Alta (diciembre),1.2,Grande,7425.0,2227.49,668.25

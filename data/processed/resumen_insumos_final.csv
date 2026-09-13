@@ -1,0 +1,138 @@
+categoria_real,producto,unidad_final,unidad_confirmada,cantidad_valor
+Semillas,Ajonjolí Negro,g,True,2000.0
+Semillas,Ajonjolí Blanco,g,True,2000.0
+Abastos - Vegetales,Germen de Soya,g,True,1500.0
+Semillas,Girasol,g,True,1000.0
+Semillas y Toppings,Furikake,g,True,500.0
+Bebidas,Azúcar,g,True,500.0
+Semillas y Toppings,Shichimi,g,True,500.0
+Bebidas,Almendra Molida,g,True,300.0
+Abastos,Chile de Árbol,g,True,200.0
+Abastos,Pepino,kg,True,122.0
+Desechables,Bowl (empaque),oz,True,116.0
+Abastos - Vegetales,Limón,kg,False,80.0
+Insumos para Bebidas Preparadas,Maracuyá,L,False,72.0
+Insumos para Bebidas Preparadas,Agua de Jamaica,L,False,72.0
+Insumos para Bebidas Preparadas,Horchata,L,False,66.0
+Abastos - Vegetales,Mango,kg,True,54.0
+Abastos - Lacteos,Crema de Coco,L,False,53.0
+Abastos - Vegetales,Limón,kg,True,52.0
+Salsas y Condimentos,Chipotle,kg,False,48.0
+Mariscos,Atún Nacional,kg,True,46.5
+Abastos - Vegetales,Mango,kg,False,40.0
+Abastos,Cebolla,kg,True,40.0
+Abastos,Aguacate,kg,True,40.0
+Mariscos,Camarón,kg,True,31.0
+Postres,Brownies (paquete),pz,True,30.0
+Abastos - Vegetales,Fresa,kg,False,25.0
+Mariscos,Salmón,lonjas,True,21.0
+Salsas y Condimentos,Salsa de Soya,L,True,20.0
+Abastos,Zanahoria,kg,True,19.5
+Desechables - Papel,Obleas,paquete,False,18.0
+Abastos - Vegetales,Coco,kg,False,18.0
+Desechables - Papel,Palillos,paquete,False,17.0
+Abastos - Lacteos,Yogurt Natural,L,False,17.0
+Bebidas,Jugo de Naranja (garrafa),L,True,16.5
+Salsas y Condimentos,Salsa Macha,L,False,13.0
+Mariscos,Atún Importado,kg,True,13.0
+Semillas y Toppings,Alga Nori (Seaweed),kg,False,13.0
+Congelados,Veggie Dumplings,paquete,False,12.0
+Abastos,Betabel,kg,True,10.0
+Congelados,Dumpling de Pollo,paquete,False,10.0
+Abastos - Vegetales,Jícama,kg,True,9.0
+Salsas y Condimentos,Mayonesa,L,False,8.0
+Abastos - Granos,Arroz Integral,kg,False,8.0
+Abastos,Chile Jalapeño,kg,True,7.0
+Abastos,Cilantro,manojo,True,7.0
+Abastos - Granos,Arroz Blanco,kg,False,7.0
+Abastos - Vegetales,Germen de Soya,kg,True,6.5
+Utensilios,Tuppers para Almacenar,pza,False,6.0
+Bebidas Embotelladas,Agua Natural,pza,False,6.0
+Mariscos y Proteinas,Kanikama,kg,True,6.0
+Mariscos,Salmón,L,True,6.0
+Desechables,Salsa de Anguila,L,True,5.1
+Bebidas Embotelladas,Agua de Coco,pza,False,5.0
+Bebidas Embotelladas,Coca-Cola Light,pza,False,5.0
+Bebidas Embotelladas,Coca-Cola,pza,False,5.0
+Mariscos y Proteinas,Kanikama,kg,False,5.0
+Mariscos y Proteinas,Pulpo,kg,True,5.0
+Desechables - Papel,Servilletas,paquete,False,5.0
+Semillas y Toppings,Platanitos,bolsa,True,4.0
+Abastos - Vegetales,Jengibre Sazonado,kg,False,4.0
+Semillas y Toppings,Ajonjolí Cremoso,kg,False,4.0
+Abastos - Vegetales,Jengibre,kg,False,4.0
+Abastos - Granos,Quinoa,kg,False,4.0
+Abastos - Lacteos,Leche de Coco,L,False,4.0
+Abastos - Lacteos,Queso Crema,kg,False,3.0
+Mariscos y Proteinas,Edamames,kg,False,3.0
+Mariscos y Proteinas,Edamames,caja,True,3.0
+Mariscos y Proteinas,Masago,kg,False,3.0
+Salsas y Condimentos,Sake,L,False,3.0
+Utensilios,Trapo Amarillo,pza,False,2.0
+Utensilios,Scoop,pza,False,2.0
+Utensilios,Guantes Grandes,paquete,False,2.0
+Abastos - Granos,Maicena,kg,False,2.0
+Abastos - Vegetales,Piña,pz,True,2.0
+Abastos - Vegetales,Piña,chicas,True,2.0
+Bebidas,Huevo,docena,True,2.0
+Semillas y Toppings,Cebolla Crujiente,kg,False,2.0
+Semillas y Toppings,Shichimi,kg,False,2.0
+Semillas y Toppings,Platanitos,bolsas,True,2.0
+Salsas y Condimentos,Vinagre de Arroz,L,False,2.0
+Salsas y Condimentos,Salsa de Soya,L,False,2.0
+Semillas y Toppings,Ajonjolí Cremoso,L,True,2.0
+Semillas y Toppings,Alga Nori,kg,False,2.0
+Semillas,Ajonjolí Negro,kg,True,2.0
+Desechables - Papel,Vitafilm,paquete,False,2.0
+Salsas y Condimentos,Aceite Vegetal,L,False,2.0
+Semillas,Ajonjolí Blanco,kg,True,2.0
+Limpieza,Cloro,L,False,2.0
+Mariscos y Proteinas,Pulpo,kg,False,2.0
+Abastos - Vegetales,Jícama,grande,True,2.0
+Abastos,Miel,litro,True,1.0
+Abastos,Ajonjolí Garapiñado,kg,True,1.0
+Abastos,Girasol Garapiñado,kg,True,1.0
+Abastos - Vegetales,Jícama,kg,False,1.0
+Abastos - Vegetales,Jícama,pza,True,1.0
+Abastos - Granos,Quinoa,caja,True,1.0
+Abastos - Vegetales,Germen de Soya,kg,False,1.0
+Abastos - Lacteos,Queso Philadelphia,kg,False,1.0
+Abastos - Granos,Sal,kg,False,1.0
+Abastos,Perejil,manojo,True,1.0
+Abastos - Vegetales,Piña,kg,False,1.0
+Abastos - Vegetales,Piña,pza,True,1.0
+Abastos - Vegetales,Piña,pieza,True,1.0
+Abastos - Vegetales,Piña,chica,True,1.0
+Abastos - Vegetales,Piña,grande,True,1.0
+Desechables - Papel,Toalla en Rollo,caja,True,1.0
+Desechables - Papel,Toalla en Rollo,paquete,False,1.0
+Desechables - Papel,Tenedores Desechables,caja,True,1.0
+Desechables - Papel,Tenedores Desechables,paquete,False,1.0
+Desechables - Papel,Sanitas,paquete,False,1.0
+Desechables - Papel,Bolsa de Papel To-Go Chica,paquete,False,1.0
+Desechables - Papel,Papel de Baño,paquete,False,1.0
+Desechables - Papel,Rollo Bolsas To-Go,paquete,False,1.0
+Desechables - Papel,Bolsa de Papel To-Go,chica,True,1.0
+Desechables,Souflés sin Tapa,caja,True,1.0
+Desechables - Papel,Bolsa para Basura,paquete,False,1.0
+Limpieza,Jabón para Manos,L,False,1.0
+Limpieza,Lysol,L,False,1.0
+Limpieza,Limpiador de Vidrios,L,False,1.0
+Limpieza,Odoban Cítricos,L,False,1.0
+Mariscos,Salmón,lonja,True,1.0
+Salsas y Condimentos,Salsa Inglesa,L,False,1.0
+Salsas y Condimentos,Mostaza Dijón,L,False,1.0
+Salsas y Condimentos,Aceite de Ajonjolí,L,False,1.0
+Limpieza,Huevo,docena,True,1.0
+Limpieza,Aromatizante,L,False,1.0
+Limpieza,Pinol,L,False,1.0
+Salsas y Condimentos,Sriracha,L,False,1.0
+Salsas y Condimentos,Salsa Maggi,L,False,1.0
+Semillas y Toppings,Coco Rayado,kg,False,1.0
+Utensilios,Bowl Grande c/Tapa,pza,False,1.0
+Semillas y Toppings,Furikake,kg,False,1.0
+Semillas y Toppings,Platanitos,kg,False,1.0
+Utensilios,Guantes Medianos,paquete,False,1.0
+Utensilios,Fibras,caja,True,1.0
+Utensilios,Bowl Mediano c/Tapa,pza,False,1.0
+Utensilios,Scoop,negra,True,1.0

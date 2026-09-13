@@ -1,0 +1,392 @@
+fecha,categoria,producto,cantidad_valor,cantidad_unidad,especificacion_original
+2026-02-22,Mariscos,Atún Nacional,3.0,kg,3 kg
+2026-02-22,Mariscos,Salmón,2.0,L,2 L
+2026-02-22,Mariscos,Camarón,4.0,kg,4 kg
+2026-02-22,Abastos,Limón,4.0,kg,4 kg
+2026-02-22,Abastos,Pepino,12.0,kg,12 Kg
+2026-02-22,Abastos,Mango,6.0,kg,6kg verdes y 6kg maduros
+2026-02-22,Abastos,Aguacate,4.0,kg,4kg maduro y 5kg verdes
+2026-02-22,Abastos,Betabel,1.0,kg,1 kg
+2026-02-22,Abastos,Jícama,2.0,kg,2 kg
+2026-02-22,Abastos,Cilantro,1.0,manojo,1 manojo chico
+2026-02-22,Abastos,Germen de Soya,1.0,kg,1kg
+2026-02-22,Abastos,Piña,2.0,pz,2 piezas
+2026-02-22,Semillas,Ajonjolí Blanco,1.0,kg,1 kg
+2026-02-22,Semillas,Ajonjolí Negro,1.0,kg,1 kg
+2026-02-22,Semillas,Guantes Medianos,1.0,,1
+2026-02-22,Semillas,Guantes Grandes,1.0,,1
+2026-02-22,Semillas,Ajonjolí Cremoso,2.0,,2
+2026-02-22,Semillas,Masago,1.0,,1
+2026-02-22,Semillas,Veggie Dumplings,2.0,,2
+2026-02-22,Semillas,Arroz Blanco,1.0,,1
+2026-02-22,Semillas,Jengibre,1.0,,1
+2026-02-22,Semillas,Edamames,1.0,,1
+2026-02-22,Semillas,Sriracha,1.0,,1
+2026-02-22,Semillas,Leche de Coco,1.0,,1
+2026-02-22,Semillas,Arroz Integral,1.0,,1
+2026-02-22,Semillas,Alga Nori (Seaweed),2.0,,2
+2026-02-22,Semillas,Kanikama,1.5,kg,1.5 kg
+2026-02-22,Semillas,Palillos,2.0,,2
+2026-02-22,Bebidas,Limón,8.0,,8
+2026-02-22,Bebidas,Maracuyá,4.0,,4
+2026-02-22,Bebidas,Horchata,3.0,,3
+2026-02-22,Bebidas,Crema de Coco,6.0,,6
+2026-02-22,Bebidas,Agua de Jamaica,5.0,,5
+2026-02-22,Bebidas,Fresa,3.0,,3
+2026-02-22,Bebidas,Pulpo,1.0,kg,1kg
+2026-02-22,Bebidas,Almendra Molida,300.0,g,300 gr
+2026-02-22,Bebidas,Toalla en Rollo,1.0,caja,1 caja
+2026-02-22,Bebidas,Vitafilm,1.0,,1
+2026-02-22,Bebidas,Mayonesa,2.0,,2
+2026-02-22,Bebidas,Yogurt Natural,3.0,,3
+2026-02-22,Bebidas,Servilletas,1.0,,1
+2026-02-22,Bebidas,Cloro,1.0,,1
+2026-02-22,Bebidas,Chipotle,12.0,,12
+2026-02-22,Bebidas,Agua Natural,1.0,,1
+2026-02-22,Bebidas,Salsa Macha,2.0,,2
+2026-02-22,Bebidas,Coca-Cola Light,1.0,,1
+2026-02-22,Bebidas,Coca-Cola,1.0,,1
+2026-02-22,Bebidas,Dumpling de Pollo,2.0,,2
+2026-02-22,Bebidas,Agua de Coco,1.0,,1
+2026-02-22,Bebidas,Queso Philadelphia,1.0,,1
+2026-02-22,Bebidas,Limpiador de Vidrios,1.0,,1
+2026-02-22,Otros,Quinoa,2.0,,2
+2026-02-22,Otros,Obleas,15.0,,15
+2026-02-25,Mariscos,Atún Nacional,6.0,kg,6 kg
+2026-02-25,Mariscos,Atún Importado,4.0,kg,4 kg
+2026-02-25,Mariscos,Salmón,3.0,lonjas,3 lonjas
+2026-02-25,Mariscos,Camarón,2.0,kg,2 kg
+2026-02-25,Abastos,Mango,10.0,kg,10 kg verde y 6 kg maduro
+2026-02-25,Abastos,Pepino,12.0,kg,12 kg
+2026-02-25,Abastos,Aguacate,5.0,kg,5 kg maduro y 4 kg verde
+2026-02-25,Abastos,Zanahoria,3.0,kg,3 kg
+2026-02-25,Abastos,Cilantro,1.0,manojo,1 manojo grande
+2026-02-25,Abastos,Cebolla,15.0,kg,15 kg
+2026-02-25,Abastos,Chile Jalapeño,2.0,kg,2 kg
+2026-02-25,Abastos,Germen de Soya,1.0,kg,1 kg
+2026-02-25,Abastos,Limón,4.5,kg,4.5 kg
+2026-02-25,Abastos,Jícama,1.0,grande,1 grande
+2026-02-25,Abastos,Girasol Garapiñado,1.0,kg,1 kg
+2026-02-25,Abastos,Ajonjolí Garapiñado,1.0,kg,1 kg
+2026-02-25,Abastos,Platanitos,1.0,bolsa,1 bolsa
+2026-02-25,Bebidas,Agua de Jamaica,8.0,,8
+2026-02-25,Bebidas,Limón,8.0,,8
+2026-02-25,Bebidas,Coco,8.0,,8
+2026-02-25,Bebidas,Horchata,8.0,,8
+2026-02-25,Bebidas,Fresa,8.0,,8
+2026-02-25,Bebidas,Maracuyá,8.0,,8
+2026-03-01,Mariscos,Atún Nacional,5.0,kg,5 kg
+2026-03-01,Mariscos,Atún Importado,3.0,kg,3 kg
+2026-03-01,Mariscos,Salmón,4.0,L,4 L
+2026-03-01,Mariscos,Camarón,4.0,kg,4 kg
+2026-03-01,Abastos,Limón,4.0,kg,4 kg
+2026-03-01,Abastos,Mango,6.0,kg,6 kg verdes y 7 kg maduros
+2026-03-01,Abastos,Pepino,11.0,kg,11 kg
+2026-03-01,Abastos,Aguacate,4.0,kg,4kg maduro y 6kg verdes
+2026-03-01,Abastos,Piña,2.0,chicas,2 chicas
+2026-03-01,Abastos,Zanahoria,3.0,kg,3 kg
+2026-03-01,Abastos,Betabel,2.0,kg,2 kg
+2026-03-01,Abastos,Jícama,2.0,kg,2 kg
+2026-03-01,Abastos,Cilantro,1.0,manojo,1 manojo grande
+2026-03-01,Abastos,Perejil,1.0,manojo,1 manojo chico
+2026-03-01,Abastos,Chile de Árbol,200.0,g,200 gr
+2026-03-01,Abastos,Germen de Soya,1.5,kg,1.5 kg
+2026-03-01,Semillas,Ajonjolí Blanco,500.0,g,500 gr
+2026-03-01,Semillas,Ajonjolí Negro,500.0,g,500 gr
+2026-03-01,Semillas,Girasol,500.0,g,500 gr
+2026-03-01,Semillas,Platanitos,1.0,bolsa,1 bolsa
+2026-03-01,Desechables,Bowl Grande c/Tapa,1.0,,1
+2026-03-01,Desechables,Bowl Mediano c/Tapa,1.0,,1
+2026-03-01,Desechables,Salsa de Soya,20.0,L,20 L
+2026-03-01,Desechables,Ajonjolí Cremoso,2.0,L,2 L
+2026-03-01,Desechables,Furikake,500.0,g,500 gr
+2026-03-01,Desechables,Alga Nori,1.0,,1
+2026-03-01,Desechables,Jengibre,1.0,,1
+2026-03-01,Desechables,Jengibre Sazonado,1.0,,1
+2026-03-01,Desechables,Edamames,1.0,caja,1 caja
+2026-03-01,Desechables,Vinagre de Arroz,1.0,,1
+2026-03-01,Desechables,Veggie Dumplings,2.0,,2
+2026-03-01,Desechables,Sake,1.0,,1
+2026-03-01,Desechables,Arroz Blanco,1.0,,1
+2026-03-01,Desechables,Arroz Integral,1.0,,1
+2026-03-01,Desechables,Alga Nori (Seaweed),4.0,,4
+2026-03-01,Desechables,Kanikama,5.0,,5
+2026-03-01,Desechables,Palillos,7.0,,7
+2026-03-01,Bebidas,Limón,9.0,,9
+2026-03-01,Bebidas,Maracuyá,9.0,,9
+2026-03-01,Bebidas,Horchata,9.0,,9
+2026-03-01,Bebidas,Crema de Coco,9.0,,9
+2026-03-01,Bebidas,Agua de Jamaica,7.0,,7
+2026-03-01,Bebidas,Fresa,4.0,,4
+2026-03-01,Bebidas,Pulpo,1.0,kg,1kg
+2026-03-01,Bebidas,Vitafilm,1.0,,1
+2026-03-01,Bebidas,Mayonesa,3.0,,3
+2026-03-01,Bebidas,Yogurt Natural,5.0,,5
+2026-03-01,Bebidas,Huevo,1.0,docena,1 docena
+2026-03-01,Bebidas,Maicena,1.0,,1
+2026-03-01,Bebidas,Sal,1.0,,1
+2026-03-01,Bebidas,Servilletas,3.0,,3
+2026-03-01,Bebidas,Salsa Macha,2.0,,2
+2026-03-01,Bebidas,Chipotle,18.0,,18
+2026-03-01,Bebidas,Agua Natural,1.0,,1
+2026-03-01,Bebidas,Maicena,1.0,,1
+2026-03-01,Bebidas,Fibras,1.0,caja,1 caja
+2026-03-01,Bebidas,Agua de Coco,1.0,,1
+2026-03-01,Bebidas,Coca-Cola,1.0,,1
+2026-03-01,Bebidas,Coca-Cola Light,1.0,,1
+2026-03-01,Bebidas,Dumpling de Pollo,2.0,,2
+2026-03-01,Bebidas,Tenedores Desechables,1.0,caja,1 caja
+2026-03-01,Bebidas,Jabón para Manos,1.0,,1
+2026-03-01,Bebidas,Papel de Baño,1.0,,1
+2026-03-01,Postres,Brownies (paquete),15.0,pz,1
+2026-03-01,Otros,Obleas,1.0,,1
+2026-03-04,Mariscos,Atún Nacional,6.0,kg,6Kg
+2026-03-04,Mariscos,Atún Importado,3.0,kg,3kg
+2026-03-04,Mariscos,Camarón,4.0,kg,4kg
+2026-03-04,Mariscos,Salmón,4.0,lonjas,4 lonjas
+2026-03-04,Bebidas,Jugo de Naranja (garrafa),5.5,L,1
+2026-03-04,Abastos,Limón,2.0,kg,2kg
+2026-03-04,Abastos,Mango,7.0,kg,7kg verdes 5kg maduros
+2026-03-04,Abastos,Pepino,16.0,kg,16 kg
+2026-03-04,Abastos,Aguacate,5.0,kg,5kg maduros y 5kg verdes
+2026-03-04,Abastos,Piña,1.0,grande,1 grande
+2026-03-04,Abastos,Zanahoria,3.0,kg,3kg
+2026-03-04,Abastos,Betabel,2.0,kg,2kg
+2026-03-04,Abastos,Jícama,3.0,kg,3kg
+2026-03-04,Abastos,Germen de Soya,1.5,kg,1.5kg
+2026-03-04,Semillas,Ajonjolí Blanco,1.0,kg,1kg
+2026-03-04,Semillas,Alga Nori,1.0,,1
+2026-03-04,Semillas,Jengibre Sazonado,1.0,,1
+2026-03-04,Semillas,Edamames,1.0,caja,1 caja
+2026-03-04,Semillas,Shichimi,1.0,,1
+2026-03-04,Semillas,Veggie Dumplings,2.0,,2
+2026-03-04,Semillas,Arroz Blanco,1.0,,1
+2026-03-04,Semillas,Ajonjolí Cremoso,1.0,,1
+2026-03-04,Semillas,Leche de Coco,1.0,,1
+2026-03-04,Semillas,Vinagre de Arroz,1.0,,1
+2026-03-04,Semillas,Masago,1.0,,1
+2026-03-04,Bebidas,Agua de Jamaica,10.0,,10
+2026-03-04,Bebidas,Maracuyá,10.0,,10
+2026-03-04,Bebidas,Horchata,10.0,,10
+2026-03-04,Bebidas,Coco,10.0,,10
+2026-03-04,Bebidas,Limón,10.0,,10
+2026-03-04,Bebidas,Fresa,10.0,,10
+2026-03-04,Otros,Cebolla Crujiente,1.0,,1
+2026-03-08,Mariscos,Atún Nacional,5.0,kg,5 kg
+2026-03-08,Mariscos,Salmón,4.0,lonjas,4 Lonjas
+2026-03-08,Mariscos,Camarón,4.0,kg,4kg
+2026-03-08,Abastos,Limón,3.0,kg,3kg
+2026-03-08,Abastos,Pepino,12.0,kg,12Kg
+2026-03-08,Abastos,Mango,5.0,kg,5 kg  maduros
+2026-03-08,Abastos,Aguacate,3.0,kg,3kg maduro y 3kg verdes
+2026-03-08,Abastos,Zanahoria,3.5,kg,3.5 kg
+2026-03-08,Abastos,Cilantro,1.0,manojo,1 manojo chico
+2026-03-08,Abastos,Germen de Soya,1.0,,1
+2026-03-08,Semillas,Ajonjolí Blanco,500.0,g,500g
+2026-03-08,Semillas,Ajonjolí Negro,1.0,kg,1 kg
+2026-03-08,Semillas,Platanitos,2.0,bolsas,2 bolsas
+2026-03-08,Desechables,Bowl (empaque),32.0,oz,32oz con tapas 1
+2026-03-08,Desechables,Bowl (empaque),26.0,oz,26oz con tapas 1
+2026-03-08,Desechables,Guantes Grandes,1.0,,1
+2026-03-08,Desechables,Souflés sin Tapa,1.0,caja,1 caja
+2026-03-08,Desechables,Salsa de Soya,1.0,,1
+2026-03-08,Desechables,Salsa de Anguila,5.1,L,5.1L
+2026-03-08,Desechables,Ajonjolí Cremoso,1.0,,1
+2026-03-08,Desechables,Jengibre,1.0,,1
+2026-03-08,Desechables,Jengibre Sazonado,1.0,,1
+2026-03-08,Desechables,Leche de Coco,1.0,,1
+2026-03-08,Desechables,Veggie Dumplings,2.0,,2
+2026-03-08,Desechables,Arroz Blanco,1.0,,1
+2026-03-08,Desechables,Edamames,1.0,,1
+2026-03-08,Desechables,Arroz Integral,2.0,,2
+2026-03-08,Desechables,Alga Nori (Seaweed),2.0,,2
+2026-03-08,Desechables,Kanikama,1.5,kg,1.5 kg
+2026-03-08,Desechables,Palillos,5.0,,5
+2026-03-08,Desechables,Toalla en Rollo,1.0,,1
+2026-03-08,Desechables,Quinoa,1.0,,1
+2026-03-08,Bebidas,Limón,9.0,,9
+2026-03-08,Bebidas,Maracuyá,8.0,,8
+2026-03-08,Bebidas,Horchata,5.0,,5
+2026-03-08,Bebidas,Crema de Coco,8.0,,8
+2026-03-08,Bebidas,Agua de Jamaica,5.0,,5
+2026-03-08,Bebidas,Mango,4.0,,4
+2026-03-08,Bebidas,Pulpo,1.0,kg,1kg
+2026-03-08,Limpieza,Tuppers para Almacenar,6.0,,6 (330 ml)
+2026-03-08,Limpieza,Mayonesa,2.0,,2
+2026-03-08,Limpieza,Yogurt Natural,3.0,,3
+2026-03-08,Limpieza,Huevo,1.0,docena,1 docena
+2026-03-08,Limpieza,Aceite Vegetal,1.0,,1
+2026-03-08,Limpieza,Salsa Macha,3.0,,3
+2026-03-08,Limpieza,Chipotle,6.0,,6
+2026-03-08,Limpieza,Trapo Amarillo,2.0,,2
+2026-03-08,Limpieza,Agua Natural,2.0,,2
+2026-03-08,Limpieza,Agua de Coco,1.0,,1
+2026-03-08,Limpieza,Coca-Cola,1.0,,1
+2026-03-08,Limpieza,Coca-Cola Light,1.0,,1
+2026-03-08,Limpieza,Queso Crema,1.0,,1
+2026-03-08,Limpieza,Dumpling de Pollo,2.0,,2
+2026-03-08,Limpieza,Tenedores Desechables,1.0,,1
+2026-03-08,Limpieza,Lysol,1.0,,1
+2026-03-08,Limpieza,Pinol,1.0,,1
+2026-03-08,Limpieza,Sanitas,1.0,,1
+2026-03-08,Limpieza,Odoban Cítricos,1.0,,1
+2026-03-08,Postres,Brownies (paquete),15.0,pz,1
+2026-03-08,Otros,Obleas,1.0,,1
+2026-03-08,Otros,Bolsa de Papel To-Go,1.0,chica,1 chica
+2026-03-08,Otros,Scoop,1.0,negra,1 negra
+2026-03-11,Mariscos,Atún Nacional,6.0,kg,6 kg
+2026-03-11,Mariscos,Atún Importado,1.0,kg,1 kg
+2026-03-11,Mariscos,Salmón,3.0,lonjas,3 Lonjas
+2026-03-11,Mariscos,Camarón,4.0,kg,4 kg
+2026-03-11,Abastos,Limón,25.0,kg,2500 kg [CORREGIDO por el equipo: valor real = 25 kg]
+2026-03-11,Abastos,Pepino,15.0,kg,15Kg
+2026-03-11,Abastos,Mango,8.0,kg,8 kg  maduros 4 kg verdes
+2026-03-11,Abastos,Aguacate,4.0,kg,4kg maduro y 4kg verdes
+2026-03-11,Abastos,Piña,1.0,,1
+2026-03-11,Abastos,Betabel,2.0,kg,2 kg
+2026-03-11,Abastos,Zanahoria,2.0,kg,2 kg
+2026-03-11,Abastos,Cilantro,1.0,manojo,1 manojo chico
+2026-03-11,Abastos,Germen de Soya,500.0,g,500 gr
+2026-03-11,Abastos,Jícama,1.0,,1
+2026-03-11,Abastos,Cebolla,15.0,kg,15 kg
+2026-03-11,Abastos,Chile Jalapeño,2.0,kg,2 kg
+2026-03-11,Semillas,Coco Rayado,1.0,,1
+2026-03-11,Semillas,Platanitos,1.0,bolsa,1 bolsa
+2026-03-11,Semillas,Jengibre Sazonado,1.0,,1
+2026-03-11,Semillas,Shichimi,1.0,,1
+2026-03-11,Semillas,Veggie Dumplings,1.0,,1
+2026-03-11,Semillas,Arroz Blanco,1.0,,1
+2026-03-11,Semillas,Edamames,1.0,,1
+2026-03-11,Semillas,Sake,1.0,,1
+2026-03-11,Bebidas,Limón,10.0,,10
+2026-03-11,Bebidas,Maracuyá,7.0,,7
+2026-03-11,Bebidas,Horchata,6.0,,6
+2026-03-11,Bebidas,Crema de Coco,6.0,,6
+2026-03-11,Bebidas,Agua de Jamaica,10.0,,10
+2026-03-11,Bebidas,Mango,10.0,,10
+2026-03-15,Mariscos,Atún Nacional,6.0,kg,6 kg
+2026-03-15,Mariscos,Atún Importado,1.0,kg,1 kg
+2026-03-15,Mariscos,Salmón,4.0,lonjas,4 lonjas
+2026-03-15,Mariscos,Camarón,4.0,kg,4 kg
+2026-03-15,Bebidas,Jugo de Naranja (garrafa),5.5,L,1
+2026-03-15,Abastos,Mango,5.0,kg,5 kg verdes
+2026-03-15,Abastos,Pepino,16.0,kg,16 kg
+2026-03-15,Abastos,Aguacate,4.0,kg,4 kg maduros 4 kg verdes
+2026-03-15,Abastos,Piña,1.0,pieza,1 pieza grande
+2026-03-15,Abastos,Betabel,1.0,kg,1 kg
+2026-03-15,Abastos,Jícama,2.0,kg,2 kg
+2026-03-15,Abastos,Cilantro,1.0,manojo,1 manojo mediano
+2026-03-15,Abastos,Germen de Soya,1.5,kg,1.5 kg
+2026-03-15,Semillas,Ajonjolí Negro,500.0,g,500 gr
+2026-03-15,Semillas,Ajonjolí Blanco,500.0,g,500 gr
+2026-03-15,Semillas,Platanitos,1.0,,1
+2026-03-15,Semillas,Aceite de Ajonjolí,1.0,,1
+2026-03-15,Semillas,Shichimi,500.0,g,500 gr
+2026-03-15,Semillas,Leche de Coco,1.0,,1
+2026-03-15,Semillas,Veggie Dumplings,1.0,,1
+2026-03-15,Semillas,Arroz Blanco,1.0,,1
+2026-03-15,Semillas,Arroz Integral,2.0,,2
+2026-03-15,Semillas,Alga Nori (Seaweed),3.0,,3
+2026-03-15,Semillas,Quinoa,1.0,caja,1 caja
+2026-03-15,Semillas,Rollo Bolsas To-Go,1.0,,1
+2026-03-15,Bebidas,Limón,10.0,,10
+2026-03-15,Bebidas,Maracuyá,10.0,,10
+2026-03-15,Bebidas,Horchata,10.0,,10
+2026-03-15,Bebidas,Crema de Coco,10.0,,10
+2026-03-15,Bebidas,Agua de Jamaica,10.0,,10
+2026-03-15,Bebidas,Mango,10.0,,10
+2026-03-15,Bebidas,Pulpo,2.0,kg,2 kg
+2026-03-15,Bebidas,Mayonesa,1.0,,1
+2026-03-15,Bebidas,Yogurt Natural,3.0,,3
+2026-03-15,Bebidas,Aceite Vegetal,1.0,,1
+2026-03-15,Bebidas,Azúcar,500.0,g,500 gr
+2026-03-15,Bebidas,Salsa Macha,4.0,,4
+2026-03-15,Bebidas,Agua Natural,1.0,,1
+2026-03-15,Bebidas,Aromatizante,1.0,,1
+2026-03-15,Bebidas,Agua de Coco,1.0,,1
+2026-03-15,Bebidas,Coca-Cola,1.0,,1
+2026-03-15,Bebidas,Coca-Cola Light,1.0,,1
+2026-03-15,Bebidas,Mostaza Dijón,1.0,,1
+2026-03-15,Bebidas,Queso Crema,1.0,,1
+2026-03-15,Bebidas,Dumpling de Pollo,2.0,,2
+2026-03-15,Otros,Obleas,1.0,,1
+2026-03-18,Mariscos,Atún Nacional,6.0,kg,6 kg
+2026-03-18,Mariscos,Atún Importado,1.0,kg,1 kg
+2026-03-18,Mariscos,Salmón,3.0,lonjas,3 lonjas
+2026-03-18,Mariscos,Camarón,3.0,kg,3 kg
+2026-03-18,Abastos,Limón,4.5,kg,4.500kg
+2026-03-18,Abastos,Mango,3.0,kg,3 kg (verdes) 2 kg (maduro)
+2026-03-18,Abastos,Pepino,10.0,kg,10 kg
+2026-03-18,Abastos,Aguacate,7.0,kg,7 kg (verdes) 3 kg (maduro)
+2026-03-18,Abastos,Piña,1.0,pza,1pza grande
+2026-03-18,Abastos,Zanahoria,5.0,kg,5 kg
+2026-03-18,Abastos,Betabel,2.0,kg,2 kg
+2026-03-18,Abastos,Jícama,1.0,pza,1pza grande
+2026-03-18,Abastos,Cebolla,10.0,kg,10kg
+2026-03-18,Abastos,Chile Jalapeño,3.0,kg,3 kg
+2026-03-18,Abastos,Germen de Soya,500.0,g,500 gr
+2026-03-18,Semillas,Ajonjolí Negro,500.0,g,500gr
+2026-03-18,Semillas,Edamames,1.0,caja,1 caja
+2026-03-18,Semillas,Veggie Dumplings,1.0,,1
+2026-03-18,Bebidas,Limón,6.0,,6
+2026-03-18,Bebidas,Maracuyá,6.0,,6
+2026-03-18,Bebidas,Horchata,6.0,,6
+2026-03-18,Bebidas,Crema de Coco,5.0,,5
+2026-03-18,Bebidas,Agua de Jamaica,9.0,,9
+2026-03-18,Bebidas,Mango,6.0,,6
+2026-03-22,Mariscos,Atún Nacional,3.5,kg,3.5 kg
+2026-03-22,Mariscos,Salmón,1.0,lonja,1 lonja
+2026-03-22,Mariscos,Camarón,2.0,kg,2 kg
+2026-03-22,Bebidas,Jugo de Naranja (garrafa),5.5,L,1
+2026-03-22,Abastos,Limón,5.0,kg,5 kg
+2026-03-22,Abastos,Mango,4.0,kg,4 kg verdes 3 kg maduros
+2026-03-22,Abastos,Pepino,18.0,kg,18 kg
+2026-03-22,Abastos,Aguacate,4.0,kg,4 kg verdes 7 kg maduros
+2026-03-22,Abastos,Piña,1.0,chica,1 chica
+2026-03-22,Abastos,Jícama,1.0,grande,1 grande
+2026-03-22,Abastos,Cilantro,1.0,manojo,1 manojo chico
+2026-03-22,Abastos,Germen de Soya,500.0,g,500 gr
+2026-03-22,Abastos,Miel,1.0,litro,1 litro
+2026-03-22,Semillas,Ajonjolí Negro,500.0,g,500 gr
+2026-03-22,Semillas,Ajonjolí Blanco,500.0,g,500 gr
+2026-03-22,Semillas,Girasol,500.0,g,500 gr
+2026-03-22,Semillas,Platanitos,1.0,bolsa,1 bolsa
+2026-03-22,Desechables,Bowl (empaque),32.0,oz,32oz con tapas 1
+2026-03-22,Desechables,Bowl (empaque),26.0,oz,26oz con tapas 1
+2026-03-22,Desechables,Salsa de Soya,1.0,,1
+2026-03-22,Desechables,Furikake,1.0,,1
+2026-03-22,Desechables,Jengibre,1.0,,1
+2026-03-22,Desechables,Masago,1.0,,1
+2026-03-22,Desechables,Veggie Dumplings,1.0,,1
+2026-03-22,Desechables,Arroz Blanco,1.0,,1
+2026-03-22,Desechables,Sake,1.0,,1
+2026-03-22,Desechables,Arroz Integral,2.0,,2
+2026-03-22,Desechables,Alga Nori (Seaweed),2.0,,2
+2026-03-22,Desechables,Kanikama,3.0,kg,3 kg
+2026-03-22,Desechables,Palillos,3.0,,3
+2026-03-22,Desechables,Quinoa,1.0,,1
+2026-03-22,Bebidas,Limón,10.0,,10
+2026-03-22,Bebidas,Maracuyá,10.0,,10
+2026-03-22,Bebidas,Horchata,9.0,,9
+2026-03-22,Bebidas,Crema de Coco,9.0,,9
+2026-03-22,Bebidas,Agua de Jamaica,8.0,,8
+2026-03-22,Bebidas,Mango,10.0,,10
+2026-03-22,Bebidas,Pulpo,2.0,,2
+2026-03-22,Bebidas,Yogurt Natural,3.0,,3
+2026-03-22,Bebidas,Huevo,1.0,docena,1 docena
+2026-03-22,Bebidas,Cloro,1.0,,1
+2026-03-22,Bebidas,Servilletas,1.0,,1
+2026-03-22,Bebidas,Salsa Macha,2.0,,2
+2026-03-22,Bebidas,Chipotle,12.0,,12
+2026-03-22,Bebidas,Agua Natural,1.0,,1
+2026-03-22,Bebidas,Bolsa para Basura,1.0,,1
+2026-03-22,Bebidas,Agua de Coco,1.0,,1
+2026-03-22,Bebidas,Coca-Cola,1.0,,1
+2026-03-22,Bebidas,Coca-Cola Light,1.0,,1
+2026-03-22,Bebidas,Salsa Maggi,1.0,,1
+2026-03-22,Bebidas,Salsa Inglesa,1.0,,1
+2026-03-22,Bebidas,Queso Crema,1.0,,1
+2026-03-22,Bebidas,Dumpling de Pollo,2.0,,2
+2026-03-22,Otros,Bolsa de Papel To-Go Chica,1.0,,1
+2026-03-22,Otros,Cebolla Crujiente,1.0,,1
+2026-03-22,Otros,Scoop,2.0,,2
