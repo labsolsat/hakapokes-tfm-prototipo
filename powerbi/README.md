@@ -177,6 +177,4 @@ DIVIDE(
 
 Las tablas de importancia de variables y matriz de confusión del Módulo 2
 no tienen CSV propio todavía (viven embebidas en el JSON del dashboard
-D3). Si quieres replicarlas en Power BI, cópialas manualmente como una
-tabla nueva (Modelado → Nueva tabla → pegar los ~10 valores) — son pocos
-datos, no vale la pena un script aparte.
+D3).
