@@ -170,7 +170,7 @@ DIVIDE(
 
 **Página 5 — Pedidos e Insumos**
 - Tabla: `resumen_insumos_final` (categoria_real, producto, unidad_final, cantidad_valor, unidad_confirmada)
-- Formato condicional en la columna `unidad_confirmada`: verde si `TRUE`, ámbar si `FALSE`
+- Formato condicional en la columna `unidad_confirmada`: verde si `TRUE`, ámbar si `FALSE`, se modificaron a 1 y 0, ya que no se lograba aplicar el formato condicional en la ultima tabla de pedidos con top 40.
 - Tarjeta KPI: `% Unidad Confirmada`
 
 ## Nota
