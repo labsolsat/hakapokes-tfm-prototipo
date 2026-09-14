@@ -5,7 +5,7 @@ de Inventarios y Retención de Clientes*. Este repositorio contiene el código,
 los datos procesados y el prototipo (cuadro de mando + notebooks) que
 respaldan los resultados presentados en el documento del proyecto.
 
-## Qué hay aquí
+## Estructura del Repositorio
 
 | Carpeta                        | Contenido                                                                                                                             |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
