@@ -175,6 +175,6 @@ DIVIDE(
 
 ## Nota
 
-Las tablas de importancia de variables y matriz de confusión del Módulo 2
-no tienen CSV propio todavía (viven embebidas en el JSON del dashboard
+Las tablas de importancia de variables y matriz de confusión del Módulo 2 se crearon como datos fijos en Power BI y
+no tienen CSV propio  (viven embebidas en el JSON del dashboard
 D3).
