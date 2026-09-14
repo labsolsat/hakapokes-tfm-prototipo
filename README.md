@@ -79,7 +79,7 @@ respaldan los resultados presentados en el documento del proyecto.
    python3 -m http.server 8000
    ```
 
-   y visita `http://localhost:8000`. (`fetch()` no funciona abriendo el
+   abre el navegador y coloca la siguiente URL `http://localhost:8000`. (`fetch()` no funciona abriendo el
    archivo con doble clic — los navegadores bloquean peticiones locales por
    seguridad; por eso se necesita un servidor, aunque sea local.)
 
