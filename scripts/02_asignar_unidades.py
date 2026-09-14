@@ -8,8 +8,14 @@ Cierra el tema de unidades ambiguas en 'Pedidos por Fecha':
  - Reconstruye una 'categoria_real' a partir del PRODUCTO (no de la columna
    'categoria' original, que resulto no ser confiable).
 """
+from pathlib import Path
+
 import pandas as pd
 import unicodedata
+
+# ---- Rutas relativas al repo (funcionan en cualquier maquina que lo clone) ----
+BASE_DIR = Path(__file__).resolve().parent.parent  # sube de scripts/ a la raiz del repo
+DATA_DIR = BASE_DIR / "data" / "processed"
 
 def norm(s):
     s = unicodedata.normalize("NFKD", str(s)).encode("ascii","ignore").decode("ascii")
@@ -115,7 +121,7 @@ GRUPOS = {
 }
 
 def main():
-    df = pd.read_csv("/home/claude/entregable4/data/processed/pedidos_limpios.csv")
+    df = pd.read_csv(DATA_DIR / "pedidos_limpios.csv")
     df["unidad_confirmada"] = df["cantidad_unidad"].notna()
     df["categoria_real"] = None
     df["unidad_final"] = df["cantidad_unidad"]
@@ -144,14 +150,14 @@ def main():
     print("Unidad confirmada (venia explicita en el Excel):", df.unidad_confirmada.sum())
     print("Unidad supuesta (asignada por criterio de compra estandar):", (~df.unidad_confirmada).sum())
 
-    df.to_csv("/home/claude/entregable4/data/processed/pedidos_limpios_v2.csv", index=False)
+    df.to_csv(DATA_DIR / "pedidos_limpios_v2.csv", index=False)
     print("\nGuardado: pedidos_limpios_v2.csv")
 
     # resumen final por producto, con bandera de confianza
     resumen = (df.groupby(["categoria_real","producto","unidad_final","unidad_confirmada"], as_index=False)
                  ["cantidad_valor"].sum()
                  .sort_values("cantidad_valor", ascending=False))
-    resumen.to_csv("/home/claude/entregable4/data/processed/resumen_insumos_final.csv", index=False)
+    resumen.to_csv(DATA_DIR / "resumen_insumos_final.csv", index=False)
     print("Guardado: resumen_insumos_final.csv (", len(resumen), "filas )")
 
 if __name__ == "__main__":

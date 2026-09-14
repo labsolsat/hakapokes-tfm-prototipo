@@ -6,17 +6,27 @@ Construye el modelo de datos en estrella para el prototipo de Power BI
  - Resumen_Inventario_y_Ventas.xlsx (porciones, ventas por sucursal, pedidos)
  - Los resultados ya validados de los Modulos 1 y 2 (Entregable 3)
 """
+import os
 import json
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import openpyxl
 
-OUT = "/home/claude/entregable4/data/processed"
+# ---- Rutas relativas al repo (funcionan en cualquier maquina que lo clone) ----
+BASE_DIR = Path(__file__).resolve().parent.parent  # sube de scripts/ a la raiz del repo
+RAW_DIR = BASE_DIR / "data" / "raw"
+OUT = BASE_DIR / "data" / "processed"
+DASHBOARD_DATA_DIR = BASE_DIR / "dashboard" / "data"
+OUT.mkdir(parents=True, exist_ok=True)
+DASHBOARD_DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 # ---------------------------------------------------------------------------
-# 1) Cargar transacciones reales (ya parseadas previamente a pickle)
+# 1) Cargar transacciones reales (ya parseadas previamente a pickle por
+#    scripts/exploracion_modulo2/01_parseo_json_real.py)
 # ---------------------------------------------------------------------------
-df = pd.read_pickle("/home/claude/realdata/hakapokes_clean.pkl")
+df = pd.read_pickle(OUT / "hakapokes_clean.pkl")
 df["dia_semana_num"] = df["fecha_registro"].dt.dayofweek
 df["hora"] = df["fecha_registro"].dt.hour
 df["es_hora_pico"] = df["hora"].isin([13, 14, 15, 18, 19, 20]).astype(int)
@@ -25,7 +35,7 @@ df["fecha_dia"] = df["fecha_registro"].dt.date
 # ---------------------------------------------------------------------------
 # 2) DIM_SUCURSAL (real + ventas estimadas del Excel)
 # ---------------------------------------------------------------------------
-wb = openpyxl.load_workbook("/mnt/user-data/uploads/Resumen_Inventario_y_Ventas.xlsx", data_only=True)
+wb = openpyxl.load_workbook(RAW_DIR / "Resumen_Inventario_y_Ventas.xlsx", data_only=True)
 ventas_est = pd.DataFrame(wb["Ventas Sucursales"].iter_rows(min_row=2, values_only=True),
                            columns=["sucursal", "ventas_estimadas_mxn"])
 # quitar fila de totales y normalizar "Refugio" -> "El Refugio" para que coincida
@@ -38,7 +48,7 @@ sucursales_reales.columns = ["sucursal", "n_transacciones_historicas"]
 
 dim_sucursal = sucursales_reales.merge(ventas_est, on="sucursal", how="outer")
 dim_sucursal.insert(0, "id_sucursal", range(1, len(dim_sucursal) + 1))
-dim_sucursal.to_csv(f"{OUT}/dim_sucursal.csv", index=False)
+dim_sucursal.to_csv(OUT / "dim_sucursal.csv", index=False)
 
 # ---------------------------------------------------------------------------
 # 3) DIM_PRODUCTO_TAMANO (porciones estándar, del Excel)
@@ -52,7 +62,7 @@ porciones["tamano_num"] = porciones["tamano"].map(tamano_num_map)
 dist_tamano = df["tamano"].value_counts(normalize=True).rename("proporcion_real").reset_index()
 dist_tamano.columns = ["tamano", "proporcion_real"]
 dim_producto_tamano = porciones.merge(dist_tamano, on="tamano", how="left")
-dim_producto_tamano.to_csv(f"{OUT}/dim_producto_tamano.csv", index=False)
+dim_producto_tamano.to_csv(OUT / "dim_producto_tamano.csv", index=False)
 
 # ---------------------------------------------------------------------------
 # 4) FACT_VENTAS_DIARIAS (agregado dia x sucursal x tamano, listo para Power BI)
@@ -65,14 +75,14 @@ fact_ventas = (
 )
 fact_ventas.rename(columns={"nombre_sucursal": "sucursal", "fecha_dia": "fecha"}, inplace=True)
 fact_ventas["tasa_conversion_bebida"] = (fact_ventas["n_con_bebida"] / fact_ventas["n_tickets"]).round(4)
-fact_ventas.to_csv(f"{OUT}/fact_ventas_diarias.csv", index=False)
+fact_ventas.to_csv(OUT / "fact_ventas_diarias.csv", index=False)
 
 # ---------------------------------------------------------------------------
 # 5) FACT_PEDIDOS_INSUMOS (version final: unidad confirmada o supuesta,
 #    categoria reconstruida por producto en vez de la columna original)
 # ---------------------------------------------------------------------------
-pedidos = pd.read_csv(f"{OUT}/pedidos_limpios_v2.csv")
-pedidos.to_csv(f"{OUT}/fact_pedidos_insumos.csv", index=False)
+pedidos = pd.read_csv(OUT / "pedidos_limpios_v2.csv")
+pedidos.to_csv(OUT / "fact_pedidos_insumos.csv", index=False)
 
 # ---------------------------------------------------------------------------
 # 6) FACT_KPIS_MODELOS (consolidado, valores finales validados del Entregable 3)
@@ -98,7 +108,7 @@ kpis = pd.DataFrame([
     {"modulo": "Modulo 2 - Combo", "modelo": "Random Forest Balanced (Seleccionado)", "metrica": "F1_Macro", "valor": 0.6077},
     {"modulo": "Modulo 2 - Combo", "modelo": "Random Forest Balanced (Seleccionado)", "metrica": "Accuracy", "valor": 0.6312},
 ])
-kpis.to_csv(f"{OUT}/fact_kpis_modelos.csv", index=False)
+kpis.to_csv(OUT / "fact_kpis_modelos.csv", index=False)
 
 # ---------------------------------------------------------------------------
 # 7) FACT_COMPRAS_ESTIMADAS  <-- el corazon del Entregable 4
@@ -130,7 +140,7 @@ for _, row in prom_diario.iterrows():
                 })
 
 fact_compras = pd.DataFrame(registros)
-fact_compras.to_csv(f"{OUT}/fact_compras_estimadas.csv", index=False)
+fact_compras.to_csv(OUT / "fact_compras_estimadas.csv", index=False)
 
 # ---------------------------------------------------------------------------
 # 8) Series diarias agregadas de TODA la cadena (para el grafico de tendencia
@@ -141,13 +151,13 @@ serie_cadena = (df.groupby("fecha_dia", as_index=False)
                        n_tickets=("monto_total_mxn", "count"),
                        tasa_bebida=("tiene_bebida", "mean")))
 serie_cadena["fecha_dia"] = serie_cadena["fecha_dia"].astype(str)
-serie_cadena.to_csv(f"{OUT}/fact_serie_diaria_cadena.csv", index=False)
+serie_cadena.to_csv(OUT / "fact_serie_diaria_cadena.csv", index=False)
 
-# Serie CON estacionalidad anual declarada (generada por add_seasonality.py)
-serie_estacional_df = pd.read_csv(f"{OUT}/fact_serie_diaria_cadena_estacional.csv")
-kpis_m1_estacional_df = pd.read_csv(f"{OUT}/fact_kpis_modulo1_estacional.csv")
-feat_imp_m1_df = pd.read_csv(f"{OUT}/fact_importancia_variables_m1_estacional.csv", index_col=0)
-factor_estacional_df = pd.read_csv(f"{OUT}/dim_factor_estacional.csv")
+# Serie CON estacionalidad anual declarada (generada por 04_estacionalidad_modulo1.py)
+serie_estacional_df = pd.read_csv(OUT / "fact_serie_diaria_cadena_estacional.csv")
+kpis_m1_estacional_df = pd.read_csv(OUT / "fact_kpis_modulo1_estacional.csv")
+feat_imp_m1_df = pd.read_csv(OUT / "fact_importancia_variables_m1_estacional.csv", index_col=0)
+factor_estacional_df = pd.read_csv(OUT / "dim_factor_estacional.csv")
 
 feat_importance_m1 = feat_imp_m1_df.iloc[:, 0].round(4).to_dict()
 
@@ -198,18 +208,15 @@ consolidado = {
     ),
 }
 
-import os
-os.makedirs("/home/claude/entregable4/dashboard/data", exist_ok=True)
-with open("/home/claude/entregable4/dashboard/data/hakapokes_dashboard_data.json", "w", encoding="utf-8") as f:
+dashboard_json_path = DASHBOARD_DATA_DIR / "hakapokes_dashboard_data.json"
+with open(dashboard_json_path, "w", encoding="utf-8") as f:
     json.dump(consolidado, f, ensure_ascii=False, indent=1, default=str)
 
-print("JSON consolidado generado:",
-      os.path.getsize("/home/claude/entregable4/dashboard/data/hakapokes_dashboard_data.json") / 1024, "KB")
+print("JSON consolidado generado:", os.path.getsize(dashboard_json_path) / 1024, "KB")
 
 print("Archivos generados en", OUT)
-import os
-for f in sorted(os.listdir(OUT)):
-    print(" -", f, f"({os.path.getsize(os.path.join(OUT,f))/1024:.1f} KB)")
+for fn in sorted(os.listdir(OUT)):
+    print(" -", fn, f"({os.path.getsize(OUT / fn)/1024:.1f} KB)")
 
 print("\n--- dim_sucursal ---")
 print(dim_sucursal.to_string())

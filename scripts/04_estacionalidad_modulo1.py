@@ -12,6 +12,8 @@ la temperatura en el Modulo 2. Los coeficientes se fijan a priori con base en
 el calendario comercial mexicano tipico (vacaciones escolares, diciembre,
 cuesta de enero, Semana Santa), NO se calibran para forzar una metrica.
 """
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 from sklearn.linear_model import Ridge
@@ -19,9 +21,12 @@ from sklearn.ensemble import RandomForestRegressor, HistGradientBoostingRegresso
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 RNG_SEED = 42
-OUT = "/home/claude/entregable4/data/processed"
 
-df = pd.read_pickle("/home/claude/realdata/hakapokes_clean.pkl")
+# ---- Rutas relativas al repo (funcionan en cualquier maquina que lo clone) ----
+BASE_DIR = Path(__file__).resolve().parent.parent  # sube de scripts/ a la raiz del repo
+OUT = BASE_DIR / "data" / "processed"
+
+df = pd.read_pickle(OUT / "hakapokes_clean.pkl")
 df["dia_semana_num"] = df["fecha_registro"].dt.dayofweek
 df["hora"] = df["fecha_registro"].dt.hour
 df["es_hora_pico"] = df["hora"].isin([13, 14, 15, 18, 19, 20]).astype(int)
@@ -129,12 +134,12 @@ serie_estacional = (agg.groupby("fecha_dia", as_index=False)
                        .agg(ingreso_total_mxn=("venta_hora", "sum"),
                             factor_estacional=("factor_estacional", "first")))
 # tasa de bebida se mantiene igual (no depende de estacionalidad anual)
-serie_original = pd.read_csv(f"{OUT}/fact_serie_diaria_cadena.csv")
+serie_original = pd.read_csv(OUT / "fact_serie_diaria_cadena.csv")
 serie_original["fecha_dia"] = pd.to_datetime(serie_original["fecha_dia"])
 serie_estacional = serie_estacional.merge(
     serie_original[["fecha_dia", "n_tickets", "tasa_bebida"]], on="fecha_dia", how="left")
 serie_estacional["fecha_dia"] = serie_estacional["fecha_dia"].astype(str)
-serie_estacional.to_csv(f"{OUT}/fact_serie_diaria_cadena_estacional.csv", index=False)
+serie_estacional.to_csv(OUT / "fact_serie_diaria_cadena_estacional.csv", index=False)
 
 print("\nIngreso total ORIGINAL (365 dias):", round(serie_original['ingreso_total_mxn'].sum(), 0))
 print("Ingreso total CON estacionalidad declarada (365 dias):", round(serie_estacional['ingreso_total_mxn'].sum(), 0))
@@ -148,9 +153,9 @@ kpis_m1_estacional = pd.DataFrame([
     for n, mae, rmse, r2 in resultados
     for m, v in [("MAE_MXN", mae), ("RMSE_MXN", rmse), ("R2", r2)]
 ])
-kpis_m1_estacional.to_csv(f"{OUT}/fact_kpis_modulo1_estacional.csv", index=False)
-tabla_factor.to_csv(f"{OUT}/dim_factor_estacional.csv", index=False)
-feat_imp_final.to_csv(f"{OUT}/fact_importancia_variables_m1_estacional.csv")
+kpis_m1_estacional.to_csv(OUT / "fact_kpis_modulo1_estacional.csv", index=False)
+tabla_factor.to_csv(OUT / "dim_factor_estacional.csv", index=False)
+feat_imp_final.to_csv(OUT / "fact_importancia_variables_m1_estacional.csv")
 
 print("\nArchivos guardados:")
 print(" - fact_serie_diaria_cadena_estacional.csv")

@@ -7,8 +7,16 @@ Tratamiento de valores faltantes/desplazados, Validacion de consistencia).
 """
 import re
 import unicodedata
+from pathlib import Path
+
 import openpyxl
 import pandas as pd
+
+# ---- Rutas relativas al repo (funcionan en cualquier maquina que lo clone) ----
+BASE_DIR = Path(__file__).resolve().parent.parent  # sube de scripts/ a la raiz del repo
+INPUT_PATH = BASE_DIR / "data" / "raw" / "Resumen_Inventario_y_Ventas.xlsx"
+OUTPUT_DIR = BASE_DIR / "data" / "processed"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 WJ = "\u2060"  # word joiner invisible que aparece pegado a varios nombres
 
@@ -103,7 +111,7 @@ def parse_qty(spec):
     return val, unit_std
 
 def main():
-    wb = openpyxl.load_workbook("/mnt/user-data/uploads/Resumen_Inventario_y_Ventas.xlsx", data_only=True)
+    wb = openpyxl.load_workbook(INPUT_PATH, data_only=True)
     ws = wb["Pedidos por Fecha"]
     rows = list(ws.iter_rows(min_row=2, values_only=True))
 
@@ -165,8 +173,8 @@ def main():
     print("\nFilas con cantidad_valor nulo (revisar manualmente):")
     print(df[df["cantidad_valor"].isna()][["fecha","categoria","producto","especificacion_original"]].to_string())
 
-    df.to_csv("/home/claude/entregable4/data/processed/pedidos_limpios.csv", index=False)
-    print("\nGuardado: data/processed/pedidos_limpios.csv")
+    df.to_csv(OUTPUT_DIR / "pedidos_limpios.csv", index=False)
+    print(f"\nGuardado: {OUTPUT_DIR / 'pedidos_limpios.csv'}")
 
 if __name__ == "__main__":
     main()
