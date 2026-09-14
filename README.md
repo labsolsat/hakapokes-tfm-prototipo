@@ -7,40 +7,67 @@ respaldan los resultados presentados en el documento del proyecto.
 
 ## Qué hay aquí
 
-| Carpeta | Contenido |
-|---|---|
-| `data/raw/` | Datos originales: transacciones sintéticas (JSON, no incluido por tamaño, ver abajo) y `Resumen_Inventario_y_Ventas.xlsx` |
-| `data/processed/` | Modelo de datos en estrella (dimensiones + hechos) en CSV, listo para Power BI u otra herramienta de BI |
-| `notebooks/` | Notebooks ejecutados: generación de datos sintéticos y modelado de los Módulos 1 y 2 |
-| `scripts/` | Pipeline de limpieza, modelado y construcción del modelo de datos, en scripts numerados por orden de ejecución |
-| `scripts/exploracion_modulo2/` | Proceso de auditoría que llevó a reconstruir honestamente el Módulo 2 (ver Metodología, sección "Supuesto causal declarado") |
-| `dashboard/` | Prototipo de cuadro de mando interactivo (D3.js), autocontenido, se alimenta de un único JSON vía `fetch()` |
-| `powerbi/` | Guía de medidas DAX y layout de páginas para replicar el cuadro de mando en Power BI Desktop a partir de los CSV de `data/processed/` |
-| `docs/` | Documento del TFM (Entregable 4) |
+| Carpeta                        | Contenido                                                                                                                             |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `data/raw/`                    | Datos originales: transacciones sintéticas (JSON, no incluido por tamaño, ver abajo) y `Resumen_Inventario_y_Ventas.xlsx`             |
+| `data/processed/`              | Modelo de datos en estrella (dimensiones + hechos) en CSV, listo para Power BI u otra herramienta de BI                               |
+| `notebooks/`                   | Notebooks ejecutados: generación de datos sintéticos y modelado de los Módulos 1 y 2                                                  |
+| `scripts/`                     | Pipeline de limpieza, modelado y construcción del modelo de datos, en scripts numerados por orden de ejecución                        |
+| `scripts/exploracion_modulo2/` | Proceso de auditoría que llevó a reconstruir honestamente el Módulo 2 (ver Metodología, sección "Supuesto causal declarado")          |
+| `dashboard/`                   | Prototipo de cuadro de mando interactivo (D3.js), autocontenido, se alimenta de un único JSON vía `fetch()`                           |
+| `powerbi/`                     | Guía de medidas DAX y layout de páginas para replicar el cuadro de mando en Power BI Desktop a partir de los CSV de `data/processed/` |
+| `docs/`                        | Documento del TFM (Entregable 4)                                                                                                      |
 
 ## Cómo correr el pipeline completo
 
 **Requisito:** Python 3.10+, con `pandas`, `numpy`, `scikit-learn`, `openpyxl` instalados
 (`pip install pandas numpy scikit-learn openpyxl`).
 
-1. Coloca el archivo `hakapokes_synthetic_transactions.json` (500,000 transacciones)
-   dentro de `data/raw/` — no viene incluido en el repo por pesar ~627 MB
-   (límite de GitHub: 100 MB/archivo).
-2. Ejecuta los scripts en orden:
-   ```bash
-   cd scripts
-   python3 01_limpieza_pedidos.py
-   python3 02_asignar_unidades.py
-   python3 03_modelo_estrella_powerbi.py
-   python3 04_estacionalidad_modulo1.py
+1. Coloca estos dos archivos dentro de `data/raw/` (no vienen incluidos en el repo):
+   - `hakapokes_synthetic_transactions.json` (500,000 transacciones, ~627 MB —
+     supera el límite de GitHub de 100 MB/archivo)
+   - `Resumen_Inventario_y_Ventas.xlsx`
+
+2. Ejecuta los scripts **en este orden** (los de `exploracion_modulo2/` van
+   primero: generan el pickle de transacciones limpias y la reconstrucción
+   causal del Módulo 2 que usan los scripts principales más adelante):
+
    ```
-   Esto regenera todos los CSV de `data/processed/` y el JSON consolidado de `dashboard/data/`.
+   cd scripts/exploracion_modulo2
+   python 01_parseo_json_real.py
+   python 03_reconstruccion_causal_declarada.py
+   cd ..
+   python 01_limpieza_pedidos.py
+   python 02_asignar_unidades.py
+   python 04_estacionalidad_modulo1.py
+   python 03_modelo_estrella_powerbi.py
+   ```
+
+   > **Nota sobre el orden:** `04_estacionalidad_modulo1.py` debe correr
+   > *antes* que `03_modelo_estrella_powerbi.py`, porque este último lee los
+   > CSV de estacionalidad (`fact_serie_diaria_cadena_estacional.csv`,
+   > `fact_kpis_modulo1_estacional.csv`, `dim_factor_estacional.csv`,
+   > `fact_importancia_variables_m1_estacional.csv`) que genera `04`. El
+   > número en el nombre de archivo indica el módulo temático que trabaja
+   > cada script, no su posición en la secuencia de ejecución.
+
+   `02_auditoria_modelos_reales.py` (dentro de `exploracion_modulo2/`) es solo
+   diagnóstico — no es requerido por el pipeline principal, pero puede
+   ejecutarse en cualquier momento después de `01_parseo_json_real.py`.
+
+   Esto regenera todos los CSV de `data/processed/` y el JSON consolidado de
+   `dashboard/data/`.
+
 3. Abre el prototipo:
-   ```bash
+
+   ```
    cd dashboard
    python3 -m http.server 8000
    ```
-   y visita `http://localhost:8000`. (`fetch()` no funciona abriendo el archivo con doble clic — los navegadores bloquean peticiones locales por seguridad; por eso se necesita un servidor, aunque sea local.)
+
+   y visita `http://localhost:8000`. (`fetch()` no funciona abriendo el
+   archivo con doble clic — los navegadores bloquean peticiones locales por
+   seguridad; por eso se necesita un servidor, aunque sea local.)
 
 ## Notebooks
 
@@ -66,6 +93,16 @@ anual (vacaciones, diciembre, cuesta de enero) no estaba presente en los
 datos originales y se añadió como supuesto declarado, documentado en
 `scripts/04_estacionalidad_modulo1.py`. Ambas decisiones están documentadas
 para que cualquier persona pueda auditarlas y reproducirlas.
+
+**Importante:** el JSON consolidado que alimenta el dashboard D3 combina dos
+fuentes distintas para todo lo relacionado con "bebida": la tasa de
+conversión real (`tiene_bebida` original) se usa en los agregados de ventas
+(`fact_ventas_diarias`, serie diaria de la cadena), mientras que las métricas
+del Módulo 2 (ROC-AUC, matriz de confusión, importancia de variables,
+sensibilidad a temperatura) provienen de la versión reconstruida bajo el
+supuesto causal declarado. Ambas series no son directamente comparables entre
+sí — cada una responde a una pregunta distinta y está identificada como tal
+en el código y en el documento.
 
 ## Equipo
 
