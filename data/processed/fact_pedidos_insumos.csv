@@ -238,7 +238,7 @@ fecha,categoria,producto,cantidad_valor,cantidad_unidad,especificacion_original,
 2026-03-11,Mariscos,Atún Importado,1.0,kg,1 kg,True,Mariscos,kg
 2026-03-11,Mariscos,Salmón,3.0,lonjas,3 Lonjas,True,Mariscos,lonjas
 2026-03-11,Mariscos,Camarón,4.0,kg,4 kg,True,Mariscos,kg
-2026-03-11,Abastos,Limón,25.0,kg,2500 kg [CORREGIDO por el equipo: valor real = 25 kg],True,Abastos - Vegetales,kg
+2026-03-11,Abastos,Limón,2500.0,kg,2500 kg,True,Abastos - Vegetales,kg
 2026-03-11,Abastos,Pepino,15.0,kg,15Kg,True,Abastos,kg
 2026-03-11,Abastos,Mango,8.0,kg,8 kg  maduros 4 kg verdes,True,Abastos - Vegetales,kg
 2026-03-11,Abastos,Aguacate,4.0,kg,4kg maduro y 4kg verdes,True,Abastos,kg

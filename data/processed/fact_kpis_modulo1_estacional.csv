@@ -1,7 +1,7 @@
 modulo,modelo,metrica,valor
-Modulo 1 - Demanda (con estacionalidad anual),Ridge Regression (Baseline),MAE_MXN,1988.9156757046221
-Modulo 1 - Demanda (con estacionalidad anual),Ridge Regression (Baseline),RMSE_MXN,2516.348323809723
-Modulo 1 - Demanda (con estacionalidad anual),Ridge Regression (Baseline),R2,0.5918572836597624
+Modulo 1 - Demanda (con estacionalidad anual),Ridge Regression (Baseline),MAE_MXN,1988.9156757046212
+Modulo 1 - Demanda (con estacionalidad anual),Ridge Regression (Baseline),RMSE_MXN,2516.3483238097224
+Modulo 1 - Demanda (con estacionalidad anual),Ridge Regression (Baseline),R2,0.5918572836597626
 Modulo 1 - Demanda (con estacionalidad anual),Random Forest Regressor,MAE_MXN,842.1747423251934
 Modulo 1 - Demanda (con estacionalidad anual),Random Forest Regressor,RMSE_MXN,1137.2446264968314
 Modulo 1 - Demanda (con estacionalidad anual),Random Forest Regressor,R2,0.9166360428383049
