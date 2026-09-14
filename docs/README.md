@@ -1,4 +1,4 @@
-**Documento del TFM**
+**Documento del Trabajo Fin Master**
 
 Este directorio contiene el documento final del proyecto:
 
