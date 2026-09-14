@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import Ridge, LogisticRegression
@@ -8,7 +10,15 @@ from sklearn.metrics import (mean_absolute_error, mean_squared_error, r2_score,
 from sklearn.model_selection import train_test_split
 
 RNG_SEED = 42
-df = pd.read_pickle("/home/claude/realdata/hakapokes_clean.pkl")
+
+# ---- Rutas relativas al repo (funcionan en cualquier maquina que lo clone) ----
+# Este archivo vive en scripts/exploracion_modulo2/, asi que sube TRES niveles
+# hasta la raiz del repo.
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+DATA_DIR = BASE_DIR / "data" / "processed"
+SCRIPT_DIR = Path(__file__).resolve().parent  # aqui mismo se guarda el JSON de resultados
+
+df = pd.read_pickle(DATA_DIR / "hakapokes_clean.pkl")
 print("Dataset real cargado:", df.shape)
 
 # ---------------------------------------------------------------------------
@@ -153,6 +163,6 @@ out = {
     "modulo2_estandar": {"accuracy": float(acc_base), "recall_minoritaria": float(rec_base)},
     "feature_importance_m2": feat_importance_final.round(4).to_dict(),
 }
-with open("/home/claude/resultados_reales_final.json", "w") as f:
+with open(SCRIPT_DIR / "resultados_reales_final.json", "w") as f:
     _json.dump(out, f, indent=2, ensure_ascii=False)
-print("\nGuardado resultados_reales_final.json")
+print(f"\nGuardado {SCRIPT_DIR / 'resultados_reales_final.json'}")

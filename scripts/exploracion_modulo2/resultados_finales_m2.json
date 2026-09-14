@@ -1,0 +1,58 @@
+{
+  "regla_causal": {
+    "intercepto": 0.75,
+    "beta_tamano": 0.7,
+    "beta_hora_pico": 0.55,
+    "beta_temp": 0.11,
+    "beta_finde": 0.25
+  },
+  "tasa_global": 0.69631,
+  "resultados_modelos": [
+    {
+      "modelo": "Random Forest (Estandar)",
+      "roc_auc": 0.6830369997072562,
+      "recall_minoritaria": 0.1695149659191939,
+      "precision_minoritaria": 0.5748101831174631,
+      "f1_macro": 0.5405745646915711,
+      "accuracy": 0.70971
+    },
+    {
+      "modelo": "Random Forest (balanced)",
+      "roc_auc": 0.683060676731546,
+      "recall_minoritaria": 0.6366360433336626,
+      "precision_minoritaria": 0.42790430028993204,
+      "f1_macro": 0.607712810129549,
+      "accuracy": 0.63116
+    },
+    {
+      "modelo": "Regresion Logistica (balanced)",
+      "roc_auc": 0.6847880851399026,
+      "recall_minoritaria": 0.6379202476209292,
+      "precision_minoritaria": 0.43036765522603576,
+      "f1_macro": 0.6099872783509097,
+      "accuracy": 0.63362
+    }
+  ],
+  "matriz_confusion_balanced": [
+    [
+      19334,
+      11035
+    ],
+    [
+      25849,
+      43782
+    ]
+  ],
+  "feature_importance": {
+    "temperatura": 0.5453,
+    "tamano_num": 0.3195,
+    "es_hora_pico": 0.0642,
+    "hora": 0.0297,
+    "dia_semana_num": 0.0206,
+    "es_finde": 0.0101,
+    "nombre_sucursal_Jurica": 0.0027,
+    "nombre_sucursal_El Refugio": 0.0027,
+    "nombre_sucursal_Juriquilla": 0.0027,
+    "nombre_sucursal_Centro Sur": 0.0026
+  }
+}

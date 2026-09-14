@@ -1,7 +1,16 @@
 import json
 import time
+from pathlib import Path
 
-path = "/home/claude/realdata/hakapokes_synthetic_transactions.json"
+# ---- Rutas relativas al repo (funcionan en cualquier maquina que lo clone) ----
+# Este archivo vive en scripts/exploracion_modulo2/, asi que sube TRES niveles
+# hasta la raiz del repo.
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+RAW_DIR = BASE_DIR / "data" / "raw"
+OUT_DIR = BASE_DIR / "data" / "processed"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+path = RAW_DIR / "hakapokes_synthetic_transactions.json"
 
 fecha_registro = []
 nombre_sucursal = []
@@ -69,5 +78,5 @@ print("\nTasa global de conversión a bebida (tiene_bebida=1):", round(df["tiene
 print("\nEstadísticos monto_total_mxn:")
 print(df["monto_total_mxn"].describe())
 
-df.to_pickle("/home/claude/realdata/hakapokes_clean.pkl")
-print("\nGuardado en hakapokes_clean.pkl")
+df.to_pickle(OUT_DIR / "hakapokes_clean.pkl")
+print(f"\nGuardado en {OUT_DIR / 'hakapokes_clean.pkl'}")

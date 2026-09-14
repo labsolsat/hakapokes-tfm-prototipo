@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LogisticRegression
@@ -9,7 +11,14 @@ from sklearn.model_selection import train_test_split
 RNG_SEED = 42
 rng = np.random.default_rng(RNG_SEED)
 
-df = pd.read_pickle("/home/claude/realdata/hakapokes_clean.pkl")
+# ---- Rutas relativas al repo (funcionan en cualquier maquina que lo clone) ----
+# Este archivo vive en scripts/exploracion_modulo2/, asi que sube TRES niveles
+# hasta la raiz del repo.
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+DATA_DIR = BASE_DIR / "data" / "processed"
+SCRIPT_DIR = Path(__file__).resolve().parent  # aqui mismo se guarda el JSON de resultados
+
+df = pd.read_pickle(DATA_DIR / "hakapokes_clean.pkl")
 df["dia_semana_num"] = df["fecha_registro"].dt.dayofweek
 df["hora"] = df["fecha_registro"].dt.hour
 df["es_hora_pico"] = df["hora"].isin([13, 14, 15, 18, 19, 20]).astype(int)
@@ -124,9 +133,9 @@ out = {
     "matriz_confusion_balanced": cm.tolist(),
     "feature_importance": feat_imp.round(4).to_dict(),
 }
-with open("/home/claude/resultados_finales_m2.json", "w", encoding="utf-8") as f:
+with open(SCRIPT_DIR / "resultados_finales_m2.json", "w", encoding="utf-8") as f:
     json.dump(out, f, indent=2, ensure_ascii=False)
-print("\nGuardado resultados_finales_m2.json")
+print(f"\nGuardado {SCRIPT_DIR / 'resultados_finales_m2.json'}")
 
 # Guardamos también el dataframe reconstruido por si se necesita para Módulo 1 u otros análisis
-df.to_pickle("/home/claude/realdata/hakapokes_reconstruido.pkl")
+df.to_pickle(DATA_DIR / "hakapokes_reconstruido.pkl")
