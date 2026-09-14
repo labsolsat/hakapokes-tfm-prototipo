@@ -23,10 +23,24 @@ respaldan los resultados presentados en el documento del proyecto.
 **Requisito:** Python 3.10+, con `pandas`, `numpy`, `scikit-learn`, `openpyxl` instalados
 (`pip install pandas numpy scikit-learn openpyxl`).
 
-1. Coloca estos dos archivos dentro de `data/raw/` (no vienen incluidos en el repo):
-   - `hakapokes_synthetic_transactions.json` (500,000 transacciones, ~627 MB —
-     supera el límite de GitHub de 100 MB/archivo)
-   - `Resumen_Inventario_y_Ventas.xlsx`
+1. Asegúrate de tener ambos archivos en `data/raw/`:
+   - `hakapokes_synthetic_transactions.json` (500,000 transacciones, ~627 MB).
+     Este archivo **sí está incluido en el repo**, pero versionado con
+     [Git LFS](https://git-lfs.com/) (supera el límite de GitHub de 100 MB/archivo
+     para un blob normal). Para que se descargue correctamente al clonar:
+
+     ```
+     git lfs install
+     git clone https://github.com/labsolsat/hakapokes-tfm-prototipo.git
+     ```
+
+     Si ya tenías el repo clonado antes de que se subiera por LFS, corre
+     `git lfs pull` dentro de la carpeta del repo para traer el contenido real
+     del archivo (de lo contrario `data/raw/hakapokes_synthetic_transactions.json`
+     quedará como un archivo apuntador de unos cuantos KB, no el JSON completo,
+     y los scripts fallarán al intentar leerlo).
+   - `Resumen_Inventario_y_Ventas.xlsx` (no versionado por LFS, colócalo
+     manualmente en `data/raw/`).
 
 2. Ejecuta los scripts **en este orden** (los de `exploracion_modulo2/` van
    primero: generan el pickle de transacciones limpias y la reconstrucción
