@@ -5,7 +5,7 @@ de Inventarios y Retención de Clientes*. Este repositorio contiene el código,
 los datos procesados y el prototipo (cuadro de mando + notebooks) que
 respaldan los resultados presentados en el documento del proyecto.
 
-## Estructura del Repositorio
+## Qué hay aquí
 
 | Carpeta                        | Contenido                                                                                                                             |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------- |
@@ -15,7 +15,7 @@ respaldan los resultados presentados en el documento del proyecto.
 | `scripts/`                     | Pipeline de limpieza, modelado y construcción del modelo de datos, en scripts numerados por orden de ejecución                        |
 | `scripts/exploracion_modulo2/` | Proceso de auditoría que llevó a reconstruir honestamente el Módulo 2 (ver Metodología, sección "Supuesto causal declarado")          |
 | `dashboard/`                   | Prototipo de cuadro de mando interactivo (D3.js), autocontenido, se alimenta de un único JSON vía `fetch()`                           |
-| `powerbi/`                     | Guía de medidas DAX y layout de páginas para replicar el cuadro de mando en Power BI Desktop a partir de los CSV de `data/processed/` |
+| `powerbi/`                     | Prototipo del cuadro de mando en Power BI Desktop (`.pbix`) más la guía de medidas DAX y layout de páginas, construido a partir de los CSV de `data/processed/` |
 | `docs/`                        | Documento del TFM (Entregable 4)                                                                                                      |
 
 ## Cómo correr el pipeline completo
@@ -79,9 +79,16 @@ respaldan los resultados presentados en el documento del proyecto.
    python3 -m http.server 8000
    ```
 
-   y abre tu navegador ingresando la URL `http://localhost:8000`. (`fetch()` no funciona abriendo el
+   y visita `http://localhost:8000`. (`fetch()` no funciona abriendo el
    archivo con doble clic — los navegadores bloquean peticiones locales por
    seguridad; por eso se necesita un servidor, aunque sea local.)
+
+   > **Alternativa en Power BI:** el mismo prototipo también está disponible
+   > como archivo `.pbix` dentro de `powerbi/`, replicando las mismas páginas
+   > y métricas del dashboard D3 a partir de los CSV de `data/processed/`.
+   > Solo necesitas Power BI Desktop instalado — no requiere levantar un
+   > servidor local. Consulta `powerbi/README.md` para la guía de medidas DAX
+   > y el layout de páginas.
 
 ## Notebooks
 
