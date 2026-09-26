@@ -1,0 +1,5 @@
+sdv>=1.9
+faker>=24.0
+pandas>=2.0
+numpy>=1.24
+pymongo>=4.6
